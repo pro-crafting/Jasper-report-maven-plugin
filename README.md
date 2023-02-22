@@ -9,8 +9,10 @@ Migration to version 3
 @alexnederlof is the original author of the plugin, but has not used it in years. The plugin got adopted by me (@Postremus) and migrated to the pro-crafting organization.
 Main goal of the adoption is to always provide a version for the latest jasperreports release.
 
-For this reason, when migrating from jasperreports-plugin 2.8 to 3.0, you will need to change the plugins groupdid, as outlined in section [Usage](#usage)
+For this reason, when migrating from jasperreports-plugin 2.8 to 3.0, you will need to follow these steps:
 
+# First, you will need to change the groupdId in the plugin definition, as outlined in section [Usage](#usage)
+# Second, the plugin now gets compiled using jdk 17. Compatibility with java 1.8 is ensured, since the CI built forces an `--release 8` flag. If any problems arise though, please let me know by opening an issue - we can always adjust that.
 
 Motivation
 ----------
@@ -26,7 +28,7 @@ You can use the plugin by adding it to the plug-in section in your pom;
 		<plugin>
 			<groupId>com.pro-crafting.tools</groupId>
 			<artifactId>jasperreports-plugin</artifactId>
-			<version>2.8</version>
+			<version>3.0</version>
 			<executions>
 				<execution>
 					<phase>process-sources</phase>
