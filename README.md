@@ -28,7 +28,7 @@ You can use the plugin by adding it to the plug-in section in your pom;
 		<plugin>
 			<groupId>com.pro-crafting.tools</groupId>
 			<artifactId>jasperreports-plugin</artifactId>
-			<version>3.0</version>
+			<version>3.0.0</version>
 			<executions>
 				<execution>
 					<phase>process-sources</phase>
