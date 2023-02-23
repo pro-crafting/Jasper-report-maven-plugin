@@ -6,7 +6,7 @@ This maven plugin compiles Jasper files to the target directory.
 Migration to version 3
 ----------
 
-[alexnederlof](@alexnederlof) is the original author of this plugin, but has not used it in years. The plugin got adopted by me ([Postremus](@Postremus)) and migrated to the pro-crafting organization.
+[alexnederlof](https://github.com/alexnederlof) is the original author of this plugin, but has not used it in years. The plugin got adopted by me ([Postremus](https://github.com/Postremus)) and migrated to the pro-crafting organization.
 Main goal of the adoption is to always provide a version for the latest JasperReports release.
 
 For this reason, when migrating from jasperreports-plugin 2.8 to 3.0, you will need to keep these things in mind:
