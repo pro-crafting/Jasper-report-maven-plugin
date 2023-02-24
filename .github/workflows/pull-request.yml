@@ -12,4 +12,4 @@ jobs:
         distribution: 'temurin'
         java-version: '17'
     - name: Maven build
-      run: mvnw -B install
+      run: ./mvnw -B install
