@@ -25,7 +25,7 @@
 
 		<!-- Dependency Versions -->
 		<version.jasperreports>6.20.1</version.jasperreports>
-		<version.slf4j>1.7.36</version.slf4j>
+		<version.slf4j>2.0.7</version.slf4j>
 		<version.plexus-compiler-api>2.13.0</version.plexus-compiler-api>
 		<version.maven-plugin-annotations>3.5.2</version.maven-plugin-annotations>
 		<version.maven-plugin-api>3.5.2</version.maven-plugin-api>
