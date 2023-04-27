@@ -1,7 +1,11 @@
 
-# 3.5.2
+# 3.5.3
 
 - Update to Jasper 6.20.2
+
+# 3.5.2
+
+(release failed due to wrong ci config, use 3.5.3)
 
 # 3.5.1
 
