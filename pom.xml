@@ -26,7 +26,6 @@
 		<!-- Dependency Versions -->
 		<version.jasperreports>6.20.5</version.jasperreports>
 
-		<version.slf4j>1.7.36</version.slf4j>
 		<version.plexus-compiler-api>2.13.0</version.plexus-compiler-api>
 		<version.maven-plugin-annotations>3.5.2</version.maven-plugin-annotations>
 		<version.maven-plugin-api>3.5.2</version.maven-plugin-api>
@@ -144,11 +143,6 @@
 			<scope>provided</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-simple</artifactId>
-			<version>${version.slf4j}</version>
-		</dependency>
 		<dependency>
 			<groupId>org.codehaus.plexus</groupId>
 			<artifactId>plexus-compiler-api</artifactId>
