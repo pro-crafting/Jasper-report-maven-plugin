@@ -34,7 +34,7 @@
 		<version.plexus-utils>3.5.1</version.plexus-utils>
 
 		<!-- Plugin Versions -->
-		<version.maven-plugin-plugin>3.5.2</version.maven-plugin-plugin>
+		<version.maven-plugin-plugin>3.10.1</version.maven-plugin-plugin>
 	</properties>
 
 	<prerequisites>
