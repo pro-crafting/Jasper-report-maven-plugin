@@ -27,7 +27,7 @@
 		<version.jasperreports>6.20.6</version.jasperreports>
 
 		<version.plexus-compiler-api>2.13.0</version.plexus-compiler-api>
-		<version.maven-plugin-annotations>3.5.2</version.maven-plugin-annotations>
+		<version.maven-plugin-annotations>3.10.2</version.maven-plugin-annotations>
 		<version.maven-plugin-api>3.5.2</version.maven-plugin-api>
 		<version.junit>4.13.2</version.junit>
 		<version.maven-plugin-testing-harness>1.1</version.maven-plugin-testing-harness>
