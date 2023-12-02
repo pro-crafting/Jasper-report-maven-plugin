@@ -2,9 +2,21 @@
 
 - Dependency updates
 
-# 3.5.7
+# 3.5.10
 
 - Update to Jasper 6.20.6
+
+# 3.5.9
+
+- (release failed due to wrong ci config, use 3.5.10)
+
+# 3.5.8
+
+- (release failed due to wrong ci config, use 3.5.10)
+
+# 3.5.7
+
+- (release failed due to wrong ci config, use 3.5.10)
 
 # 3.5.6
 
