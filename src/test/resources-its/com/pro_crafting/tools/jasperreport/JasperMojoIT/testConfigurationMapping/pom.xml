@@ -10,10 +10,25 @@
 	language governing permissions and limitations under the License. -->
 
 <project>
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.pro-crafting</groupId>
+		<artifactId>pc-parent</artifactId>
+		<version>13</version>
+	</parent>
+
+	<groupId>com.pro-crafting.tools</groupId>
+	<artifactId>jasperreports-plugin-its</artifactId>
+	<version>@project.version@</version>
+	<packaging>jar</packaging>
+
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>com.pro-crafting.tools</groupId>
 				<artifactId>jasperreports-plugin</artifactId>
+				<version>@project.version@</version>
 				<executions>
 					<execution>
 						<phase>process-sources</phase>
@@ -23,13 +38,21 @@
 					</execution>
 				</executions>
 				<configuration>
-					<xmlValidation>true</xmlValidation>
-					<numberOfThreads>4</numberOfThreads>
-					<outputFileExt>.jasper</outputFileExt>
-					<sourceFileExt>.jrxml</sourceFileExt>
-					<sourceDirectory>target/test-classes/exampleFolders/nonExistentFolder</sourceDirectory>
-					<outputDirectory>target/unitTestReports/emptyFolder_out</outputDirectory>
+					<compiler>compiler</compiler>
+					<sourceDirectory>/sourceDirectory</sourceDirectory>
+					<outputDirectory>/outputDirectory</outputDirectory>
+					<sourceFileExt>sourceFileExt</sourceFileExt>
+					<outputFileExt>outputFileExt</outputFileExt>
+					<xmlValidation>false</xmlValidation>
+					<verbose>true</verbose>
+					<numberOfThreads>2</numberOfThreads>
 					<failOnMissingSourceDirectory>false</failOnMissingSourceDirectory>
+					<sourceScanner>sourceScanner</sourceScanner>
+					<skip>true</skip>
+					<additionalClasspath>additionalClasspath</additionalClasspath>
+					<additionalProperties>
+						<net.sf.jasperreports.awt.ignore.missing.font>true</net.sf.jasperreports.awt.ignore.missing.font>
+					</additionalProperties>
 				</configuration>
 			</plugin>
 		</plugins>

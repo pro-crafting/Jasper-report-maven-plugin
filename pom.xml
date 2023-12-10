@@ -29,9 +29,8 @@
 		<version.plexus-compiler-api>2.13.0</version.plexus-compiler-api>
 		<version.maven-plugin-annotations>3.5.2</version.maven-plugin-annotations>
 		<version.maven-plugin-api>3.5.2</version.maven-plugin-api>
-		<version.junit>4.13.2</version.junit>
-		<version.maven-plugin-testing-harness>1.1</version.maven-plugin-testing-harness>
-		<version.plexus-utils>3.5.1</version.plexus-utils>
+		<version.itf>0.12.0</version.itf>
+		<version.slf4j>1.7.36</version.slf4j>
 
 		<!-- Plugin Versions -->
 		<version.maven-plugin-plugin>3.5.2</version.maven-plugin-plugin>
@@ -94,23 +93,15 @@
 		<!-- Test Dependencies -->
 		<!-- Need to be the first, otherwise guice can not be found during test execution -->
 		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>${version.junit}</version>
+			<groupId>com.soebes.itf.jupiter.extension</groupId>
+			<artifactId>itf-jupiter-extension</artifactId>
+			<version>${version.itf}</version>
 			<scope>test</scope>
 		</dependency>
-
 		<dependency>
-			<groupId>org.apache.maven.shared</groupId>
-			<artifactId>maven-plugin-testing-harness</artifactId>
-			<version>${version.maven-plugin-testing-harness}</version>
-			<scope>test</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>org.codehaus.plexus</groupId>
-			<artifactId>plexus-utils</artifactId>
-			<version>${version.plexus-utils}</version>
+			<groupId>com.soebes.itf.jupiter.extension</groupId>
+			<artifactId>itf-assertj</artifactId>
+			<version>${version.itf}</version>
 			<scope>test</scope>
 		</dependency>
 
@@ -142,12 +133,17 @@
 			<version>${version.maven-plugin-annotations}</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${version.slf4j}</version>
+			<scope>provided</scope>
+		</dependency>
 
 		<dependency>
 			<groupId>org.codehaus.plexus</groupId>
 			<artifactId>plexus-compiler-api</artifactId>
 			<version>${version.plexus-compiler-api}</version>
-			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 
@@ -155,15 +151,45 @@
 	<build>
 		<plugins>
 			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-surefire-plugin</artifactId>
-				<dependencies>
-					<dependency>
-						<groupId>org.apache.maven.surefire</groupId>
-						<artifactId>surefire-junit47</artifactId>
-						<version>${version.maven-surefire-plugin}</version>
-					</dependency>
-				</dependencies>
+				<groupId>com.soebes.itf.jupiter.extension</groupId>
+				<artifactId>itf-maven-plugin</artifactId>
+				<version>${version.itf}</version>
+				<executions>
+					<execution>
+						<id>installing</id>
+						<phase>pre-integration-test</phase>
+						<goals>
+							<goal>install</goal>
+							<goal>resources-its</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<plugin>
+				<artifactId>maven-failsafe-plugin</artifactId>
+				<configuration>
+					<systemProperties>
+						<maven.version>${maven.version}</maven.version>
+						<maven.home>${maven.home}</maven.home>
+					</systemProperties>
+					<properties>
+						<configurationParameters>
+							junit.jupiter.execution.parallel.enabled=true
+							junit.jupiter.execution.parallel.mode.default=concurrent
+							junit.jupiter.execution.parallel.mode.classes.default=same_thread
+							junit.jupiter.execution.parallel.config.strategy=fixed
+							junit.jupiter.execution.parallel.config.fixed.parallelism=6
+						</configurationParameters>
+					</properties>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>integration-test</goal>
+							<goal>verify</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

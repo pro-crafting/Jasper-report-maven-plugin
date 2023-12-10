@@ -24,28 +24,27 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 
 import org.apache.maven.plugin.logging.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * A task that compiles a Jasper sourcefile.
  */
 public class CompileTask implements Callable<Void> {
-
+    private static final Logger LOGGER = LoggerFactory.getLogger(CompileTask.class);
     private final File source;
     private final File destination;
-    private final Log log;
     private final boolean verbose;
 
     /**
      * @param source The source file.
      * @param destination The destination file.
-     * @param log The logger.
      * @param verbose If the output should be verbose.
      */
-    CompileTask(File source, File destination, Log log, boolean verbose) {
+    CompileTask(File source, File destination, boolean verbose) {
         super();
         this.source = source;
         this.destination = destination;
-        this.log = log;
         this.verbose = verbose;
     }
 
@@ -61,7 +60,7 @@ public class CompileTask implements Callable<Void> {
              InputStream in = new BufferedInputStream(new FileInputStream(source))) {
             JasperCompileManager.compileReportToStream(in, out);
             if (verbose) {
-                log.info("Compiling " + source.getName());
+                LOGGER.info("Compiling " + source.getName());
             }
         } catch (Exception e) {
             cleanUpAndThrowError(destination, e);
@@ -70,7 +69,7 @@ public class CompileTask implements Callable<Void> {
     }
 
     private void cleanUpAndThrowError(File out, Exception e) throws JRException {
-        log.error("Could not compile " + source.getName() + " because " + e.getMessage(), e);
+        LOGGER.error("Could not compile " + source.getName() + " because " + e.getMessage(), e);
         if (out != null && out.exists()) {
             out.delete();
         }
