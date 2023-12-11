@@ -60,7 +60,7 @@ public class CompileTask implements Callable<Void> {
              InputStream in = new BufferedInputStream(new FileInputStream(source))) {
             JasperCompileManager.compileReportToStream(in, out);
             if (verbose) {
-                LOGGER.info("Compiling " + source.getName());
+                LOGGER.info("Compiling source file {}", source.getAbsolutePath());
             }
         } catch (Exception e) {
             cleanUpAndThrowError(destination, e);
@@ -69,11 +69,11 @@ public class CompileTask implements Callable<Void> {
     }
 
     private void cleanUpAndThrowError(File out, Exception e) throws JRException {
-        LOGGER.error("Could not compile " + source.getName() + " because " + e.getMessage(), e);
+        LOGGER.error("Could not compile source file {}", source.getAbsolutePath(), e);
         if (out != null && out.exists()) {
             out.delete();
         }
-        throw new JRException("Could not compile " + source.getName(), e);
+        throw new JRException("Could not compile " + source.getAbsolutePath(), e);
     }
 
 }

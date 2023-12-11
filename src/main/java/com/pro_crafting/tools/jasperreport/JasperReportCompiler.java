@@ -8,7 +8,6 @@ import net.sf.jasperreports.engine.design.JRCompiler;
 import net.sf.jasperreports.engine.design.JRJdtCompiler;
 import net.sf.jasperreports.engine.xml.JRReportSaxParserFactory;
 import org.apache.maven.plugin.MojoExecutionException;
-import org.apache.maven.plugin.logging.Log;
 import org.codehaus.plexus.compiler.util.scan.InclusionScanException;
 import org.codehaus.plexus.compiler.util.scan.SimpleSourceInclusionScanner;
 import org.codehaus.plexus.compiler.util.scan.SourceInclusionScanner;
@@ -60,7 +59,7 @@ public class JasperReportCompiler {
             return;
         }
 
-        LOGGER.info("Compiling " + sources.size() + " Jasper reports design files.");
+        LOGGER.info("Compiling {} Jasper reports design files.", sources.size());
 
         List<CompileTask> tasks = generateTasks(sources, mapping);
         if (tasks.isEmpty()) {
@@ -91,11 +90,10 @@ public class JasperReportCompiler {
      */
     private Set<File> jrxmlFilesToCompile(SourceMapping mapping) throws MojoExecutionException {
         if (!configuration.sourceDirectory.isDirectory()) {
-            String message = configuration.sourceDirectory.getName() + " is not a directory";
             if (configuration.failOnMissingSourceDirectory) {
-                throw new IllegalArgumentException(message);
+                throw new IllegalArgumentException("Configured source directory " + configuration.sourceDirectory + " is not a directory");
             } else {
-                LOGGER.warn(message + ", skip JasperReports reports compiling.");
+                LOGGER.warn("Configured source directory {} is not a directory, skipping JasperReports reports compilation.", configuration.sourceDirectory);
                 return Collections.emptySet();
             }
         }
@@ -106,7 +104,7 @@ public class JasperReportCompiler {
             return scanner.getIncludedSources(configuration.sourceDirectory, configuration.outputDirectory);
         }
         catch (InclusionScanException e) {
-            throw new MojoExecutionException("Error scanning source root: \'" + configuration.sourceDirectory + "\'.", e);
+            throw new MojoExecutionException("Error scanning source root: '" + configuration.sourceDirectory + "'.", e);
         }
     }
 
@@ -152,7 +150,7 @@ public class JasperReportCompiler {
                 try {
                     File f = new File(element);
                     classpath.add(f.toURI().toURL());
-                    LOGGER.debug("Added to classpath " + element);
+                    LOGGER.debug("Added to classpath {}", element);
                 } catch (Exception e) {
                     throw new MojoExecutionException(
                             "Error setting classpath " + element + " " + e.getMessage());
@@ -165,7 +163,7 @@ public class JasperReportCompiler {
                 try {
                     File f = new File(element);
                     classpath.add(f.toURI().toURL());
-                    LOGGER.debug("Added additionalClasspath to classpath " + element);
+                    LOGGER.debug("Added additionalClasspath to classpath {}", element);
                 } catch (Exception e) {
                     throw new MojoExecutionException("Error setting classpath " + element + " " + e.getMessage());
                 }
@@ -205,7 +203,7 @@ public class JasperReportCompiler {
     private void createDestination(File destinationDirectory) throws MojoExecutionException {
         if (!destinationDirectory.exists()) {
             if (destinationDirectory.mkdirs()) {
-                LOGGER.debug("Created directory " + destinationDirectory.getName());
+                LOGGER.debug("Created directory {}", destinationDirectory.getName());
             } else {
                 throw new MojoExecutionException("Could not create directory " + destinationDirectory.getName());
             }
@@ -219,7 +217,7 @@ public class JasperReportCompiler {
             List<Future<Void>> output =
                     threadPool.invokeAll(tasks);
             long time = (System.currentTimeMillis() - t1);
-            LOGGER.info("Generated " + output.size() + " jasper reports in " + (time / 1000.0) + " seconds");
+            LOGGER.info("Generated {} jasper reports in {} seconds", output.size(),  time / 1000.0);
             checkForExceptions(output);
         } catch (InterruptedException e) {
             LOGGER.error("Failed to compile Japser reports: Interrupted!", e);
@@ -253,7 +251,7 @@ public class JasperReportCompiler {
             return new SimpleSourceInclusionScanner(Collections.singleton("**/*" + configuration.sourceFileExt),
                     Collections.emptySet());
         } else {
-            throw new MojoExecutionException("sourceScanner not supported: \'" + configuration.sourceScanner + "\'.");
+            throw new MojoExecutionException("sourceScanner not supported: '" + configuration.sourceScanner + "'.");
         }
     }
 

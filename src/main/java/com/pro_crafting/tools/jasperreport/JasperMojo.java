@@ -190,16 +190,16 @@ public class JasperMojo extends AbstractMojo {
 
 	private void logConfiguration(JasperMojoConfiguration configuration) {
 		LOGGER.info("Generating Jasper reports");
-		LOGGER.info("Output dir: " + configuration.outputDirectory.getAbsolutePath());
-		LOGGER.info("Source dir: " + configuration.sourceDirectory.getAbsolutePath());
-		LOGGER.info("Output ext: " + configuration.outputFileExt);
-		LOGGER.info("Source ext: " + configuration.sourceFileExt);
-		LOGGER.info("Additional properties: " + configuration.additionalProperties);
-		LOGGER.info("XML Validation: " + configuration.xmlValidation);
-		LOGGER.info("JasperReports Compiler: " + configuration.compiler);
-		LOGGER.info("Number of threads: " + configuration.numberOfThreads);
-		LOGGER.info("classpathElements: " + configuration.classpathElements);
-		LOGGER.info("Additional Classpath: " + configuration.additionalClasspath);
-		LOGGER.info("Source Scanner: " + configuration.sourceScanner);
+		LOGGER.info("Output dir: {}", configuration.outputDirectory.getAbsolutePath());
+		LOGGER.info("Source dir: {}", configuration.sourceDirectory.getAbsolutePath());
+		LOGGER.info("Output ext: {}", configuration.outputFileExt);
+		LOGGER.info("Source ext: {}", configuration.sourceFileExt);
+		LOGGER.info("Additional properties: {}", configuration.additionalProperties);
+		LOGGER.info("XML Validation: {}", configuration.xmlValidation);
+		LOGGER.info("JasperReports Compiler: {}", configuration.compiler);
+		LOGGER.info("Number of threads: {}", configuration.numberOfThreads);
+		LOGGER.info("classpathElements: {}", configuration.classpathElements);
+		LOGGER.info("Additional Classpath: {}", configuration.additionalClasspath);
+		LOGGER.info("Source Scanner: {}", configuration.sourceScanner);
 	}
 }
