@@ -1,5 +1,6 @@
 package com.pro_crafting.tools.jasperreport;
 
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import net.sf.jasperreports.engine.DefaultJasperReportsContext;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -46,6 +47,46 @@ class JasperReportCompilerTest {
 
         new JasperReportCompiler(configuration).compileReports();
 
+        assertEquals(configuration.sourceDirectory.listFiles().length, configuration.outputDirectory.listFiles().length, "Files from sourcefolder do not correspond to files in the destinationFolder");
+        assertAllFilesAreCompiled(configuration.sourceDirectory, configuration.outputDirectory);
+    }
+
+    @Test
+    void testCompilerConfiguration() throws Exception {
+        // given
+        JasperMojoConfiguration configuration = buildDefaultConfiguration();
+        configuration.sourceDirectory = new File("target/test-classes/exampleFolders/sampleReports");
+        configuration.outputDirectory = new File("target/unitTestReports/testCompilerConfiguration");
+        configuration.compiler = TestCompilerConfigurationCompiler.class.getName();
+
+        // when
+        new JasperReportCompiler(configuration).compileReports();
+
+        // then
+        // test that a custom compiler works
+        assertEquals(configuration.sourceDirectory.listFiles().length, configuration.outputDirectory.listFiles().length, "Files from sourcefolder do not correspond to files in the destinationFolder");
+        assertAllFilesAreCompiled(configuration.sourceDirectory, configuration.outputDirectory);
+        assertTrue(DefaultJasperReportsContext.getInstance().getProperties().containsKey("testcompiler.called"));
+
+        // given
+        configuration.outputDirectory = new File("target/unitTestReports/testCompilerConfiguration2");
+        configuration.compiler = "compiler";
+
+        // then
+        // test that an invalid configuration leads to a broken build.
+        Assertions.assertThrows(MojoExecutionException.class, () -> {
+            new JasperReportCompiler(configuration).compileReports();
+        });
+
+        // given
+        configuration.outputDirectory = new File("target/unitTestReports/testCompilerConfiguration3");
+        configuration.compiler = null;
+
+        // when
+        new JasperReportCompiler(configuration).compileReports();
+
+        // then
+        // test that a custom compiler works
         assertEquals(configuration.sourceDirectory.listFiles().length, configuration.outputDirectory.listFiles().length, "Files from sourcefolder do not correspond to files in the destinationFolder");
         assertAllFilesAreCompiled(configuration.sourceDirectory, configuration.outputDirectory);
     }
