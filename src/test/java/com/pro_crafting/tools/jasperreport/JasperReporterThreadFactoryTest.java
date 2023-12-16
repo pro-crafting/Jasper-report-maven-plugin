@@ -4,39 +4,48 @@ package com.pro_crafting.tools.jasperreport;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.Future;
 
-public class JasperReporterThreadFactoryTest {
+class JasperReporterThreadFactoryTest {
 
     @Test
-    public void testThreadNumbering() throws InterruptedException {
+    void testThreadNumbering() throws InterruptedException, ExecutionException {
 
-        ExecutorService executorService = Executors.newFixedThreadPool(4, new JasperReporterThreadFactory());
-        executorService.execute(new ThreadNameSuffixAsserterRunnable("jasper-compiler-1"));
-        executorService.execute(new ThreadNameSuffixAsserterRunnable("jasper-compiler-2"));
-        executorService.execute(new ThreadNameSuffixAsserterRunnable("jasper-compiler-3"));
-        executorService.execute(new ThreadNameSuffixAsserterRunnable("jasper-compiler-4"));
-        executorService.awaitTermination(2, TimeUnit.SECONDS);
-    }
+        List<ThreadNameRetrieverTask> tasks = new ArrayList<>();
+        tasks.add(new ThreadNameRetrieverTask());
+        tasks.add(new ThreadNameRetrieverTask());
+        tasks.add(new ThreadNameRetrieverTask());
 
-    private static class ThreadNameSuffixAsserterRunnable implements Runnable {
-        private String expectedName;
+        ExecutorService executorService = Executors.newFixedThreadPool(2, new JasperReporterThreadFactory());
+        List<Future<String>> output = executorService.invokeAll(tasks);
 
-        public ThreadNameSuffixAsserterRunnable(String expectedName) {
-            this.expectedName = expectedName;
+        Assertions.assertTrue(output.get(0).get().startsWith(JasperReporterThreadFactory.THREAD_PREFIX));
+        Assertions.assertTrue(output.get(1).get().startsWith(JasperReporterThreadFactory.THREAD_PREFIX));
+        Assertions.assertTrue(output.get(2).get().startsWith(JasperReporterThreadFactory.THREAD_PREFIX));
+
+
+        List<Integer> threadNumbers = new ArrayList<>();
+
+        for (Future<String> future : output) {
+            threadNumbers.add(Integer.parseInt(future.get().substring(JasperReporterThreadFactory.THREAD_PREFIX.length())));
         }
 
+        Assertions.assertTrue(threadNumbers.get(0) < threadNumbers.get(1));
+        Assertions.assertTrue(threadNumbers.get(2) <= threadNumbers.get(1));
+    }
+
+    private static class ThreadNameRetrieverTask implements Callable<String> {
+
         @Override
-        public void run() {
-            System.out.println(Thread.currentThread().getName());
-            Assertions.assertEquals(expectedName, Thread.currentThread().getName());
-            try {
-                Thread.sleep(1000);
-            } catch (InterruptedException e) {
-                throw new RuntimeException(e);
-            }
+        public String call() throws Exception {
+            Thread.sleep(500);
+            return Thread.currentThread().getName();
         }
     }
 }
