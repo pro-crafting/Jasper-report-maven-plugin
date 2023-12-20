@@ -81,7 +81,7 @@ public class JasperMojo extends AbstractMojo {
     private boolean skip;
 
 	/**
-	 * If verbose is on the plug-in will report which reports it is compiling
+	 * If verbose is true the plug-in will report which reports it is compiling
 	 * and which files are being skipped.
 	 *
 	 */
@@ -129,12 +129,13 @@ public class JasperMojo extends AbstractMojo {
 	 *
 	 */
 	@Parameter(defaultValue = "true")
-	private boolean failOnMissingSourceDirectory = true;
+	private boolean failOnMissingSourceDirectory;
 
 	/**
-	 * This is the source inclusion scanner class used, a
+	 * This is the source inclusion scanner class used, an
 	 * <code>org.codehaus.plexus.compiler.util.scan.SourceInclusionScanner</code>
-	 * implementation class.
+	 * implementation class. Currently only <code></code>org.codehaus.plexus.compiler.util.scan.SimpleSourceInclusionScanner</code>
+	 * and <code>org.codehaus.plexus.compiler.util.scan.StaleSourceScanner</code> are supported.
 	 *
 	 */
 	@Parameter(defaultValue = "org.codehaus.plexus.compiler.util.scan.StaleSourceScanner")
