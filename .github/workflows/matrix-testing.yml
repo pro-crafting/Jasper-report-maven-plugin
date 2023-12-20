@@ -8,6 +8,7 @@ on:
 jobs:
   matrix-testing:
     strategy:
+      fail-fast: false
       matrix:
         maven: [ 3.5.2, 3.9.6, 4.0.0-alpha-8]
         os: [ ubuntu-latest, windows-latest ]
