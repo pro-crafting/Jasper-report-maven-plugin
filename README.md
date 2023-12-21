@@ -1,10 +1,10 @@
 [![Version](https://img.shields.io/maven-central/v/com.pro-crafting.tools/jasperreports-plugin?logo=apache-maven&style=for-the-badge)](https://search.maven.org/artifact/com.pro-crafting.tools/jasperreports-pluginm)
 [![GitHub Actions Status](<https://img.shields.io/github/actions/workflow/status/pro-crafting/Jasper-report-maven-plugin/build.yml?branch=main&logo=GitHub&style=for-the-badge>)](https://github.com/pro-crafting/Jasper-report-maven-plugin/actions/workflows/build.yml)
 
-JasperReports-plugin
+jasperreports-plugin
 =============
 
-This maven plugin compiles Jasper files to the target directory. 
+This maven plugin compiles JasperReport report files to the target directory. 
 
 Migration to version 3
 ----------
@@ -19,11 +19,11 @@ For this reason, when migrating from jasperreports-plugin 2.8 to 3.0, you will n
 
 Motivation
 ----------
-The original jasperreports-maven-plugin from org.codehaus.mojo was a bit slow. This plugin is 10x faster. I tested it with 52 reports which took 48 seconds with the original plugin and only 4.7 seconds with this plugin.
+The original jasperreports-plugin from org.codehaus.mojo was a bit slow. This plugin is 10x faster. I tested it with 52 reports which took 48 seconds with the original plugin and only 4.7 seconds with this plugin.
 
 Installation
 -----
-You can use the plugin by adding it to the plug-in section in your pom:
+You can use the plugin by adding it to the plugin section in your pom:
 
 ```xml
 <build>
