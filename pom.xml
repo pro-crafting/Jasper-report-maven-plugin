@@ -13,7 +13,7 @@
 	<packaging>maven-plugin</packaging>
 	<version>3.6.0-SNAPSHOT</version>
 
-	<name>jasperreport-plugin</name>
+	<name>jasperreports-plugin</name>
 	<description>A Jasper compiler plugin</description>
 	<url>https://github.com/pro-crafting/Jasper-report-maven-plugin</url>
 
