@@ -29,7 +29,7 @@ import org.slf4j.LoggerFactory;
  * so, it keeps the folder structure intact.
  */
 @Mojo(defaultPhase = LifecyclePhase.PROCESS_RESOURCES, name = "jasper", requiresDependencyResolution =
-		ResolutionScope.COMPILE)
+		ResolutionScope.COMPILE, threadSafe = true)
 public class JasperMojo extends AbstractMojo {
 	private static final Logger LOGGER = LoggerFactory.getLogger(JasperMojo.class);
 
