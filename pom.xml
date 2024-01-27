@@ -97,20 +97,6 @@
 			<artifactId>itf-jupiter-extension</artifactId>
 			<version>${version.itf}</version>
 			<scope>test</scope>
-			<exclusions>
-				<!--
-					Excluded until itf brings at least 5.10.1 of junit.
-					The junit version transitively provided by itf takes precedence over the one in the parent,
-					since itf is defined as an explicit dependency of my project. It is therefore considered closer.
-					With 5.9, this commit is not part of junit.
-					https://github.com/junit-team/junit5/commit/2c1c1fac33b9f512388520feced9441e59831ffc
-					It is however needed for surefire.
-					-->
-				<exclusion>
-					<artifactId>junit-jupiter-api</artifactId>
-					<groupId>org.junit.jupiter</groupId>
-				</exclusion>
-			</exclusions>
 		</dependency>
 		<dependency>
 			<groupId>com.soebes.itf.jupiter.extension</groupId>
