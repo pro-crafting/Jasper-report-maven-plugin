@@ -24,7 +24,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- Dependency Versions -->
-		<version.jasperreports>6.21.0</version.jasperreports>
+		<version.jasperreports>6.21.2</version.jasperreports>
 
 		<version.plexus-compiler-api>2.13.0</version.plexus-compiler-api>
 		<version.maven-plugin-annotations>3.5.2</version.maven-plugin-annotations>
