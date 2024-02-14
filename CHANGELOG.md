@@ -1,4 +1,8 @@
-# 3.6.0 (not released yet)
+# 3.6.1
+
+- update to Jasper 6.21.2
+
+# 3.6.0
 
 - update to Jasper 6.21.0
 - Dependency updates
