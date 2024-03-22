@@ -13,6 +13,9 @@ jobs:
         maven: [ 3.5.2, 3.9.6, 4.0.0-alpha-13]
         os: [ ubuntu-latest, windows-latest ]
         java: [11, 17, 21]
+        exclude:
+          - java: 11
+            maven: 4.0.0-alpha-13
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
