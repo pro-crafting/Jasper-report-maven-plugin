@@ -33,7 +33,7 @@
 		<version.slf4j>1.7.36</version.slf4j>
 
 		<!-- Plugin Versions -->
-		<version.maven-plugin-plugin>3.5.2</version.maven-plugin-plugin>
+		<version.maven-plugin-plugin>3.13.1</version.maven-plugin-plugin>
 	</properties>
 
 	<prerequisites>
