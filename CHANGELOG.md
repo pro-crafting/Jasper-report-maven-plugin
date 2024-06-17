@@ -1,10 +1,15 @@
+# 3.6.2
+
+- Update to Jasper 6.21.3
+- Add missing dependencies for compilation of javascript based reports
+
 # 3.6.1
 
-- update to Jasper 6.21.2
+- Update to Jasper 6.21.2
 
 # 3.6.0
 
-- update to Jasper 6.21.0
+- Update to Jasper 6.21.0
 - Dependency updates
 
 # 3.5.10
