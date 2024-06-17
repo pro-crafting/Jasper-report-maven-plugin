@@ -25,8 +25,8 @@
 
 		<!-- Dependency Versions -->
 		<!-- Make sure that the following block of dependencies match the version used in jasper reports found at https://github.com/TIBCOSoftware/jasperreports/blob/master/jasperreports/pom-common.xml -->
-		<version.jasperreports>6.21.2</version.jasperreports>
-		<version.rhino>1.7.14</version.rhino>
+        <version.jasperreports>6.21.3</version.jasperreports>
+        <version.rhino>1.7.14</version.rhino>
 
 		<version.plexus-compiler-api>2.13.0</version.plexus-compiler-api>
 		<version.maven-plugin-annotations>3.5.2</version.maven-plugin-annotations>
