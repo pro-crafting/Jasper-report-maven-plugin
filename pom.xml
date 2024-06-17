@@ -24,7 +24,9 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- Dependency Versions -->
+		<!-- Make sure that the following block of dependencies match the version used in jasper reports found at https://github.com/TIBCOSoftware/jasperreports/blob/master/jasperreports/pom-common.xml -->
 		<version.jasperreports>6.21.2</version.jasperreports>
+		<version.rhino>1.7.14</version.rhino>
 
 		<version.plexus-compiler-api>2.13.0</version.plexus-compiler-api>
 		<version.maven-plugin-annotations>3.5.2</version.maven-plugin-annotations>
@@ -119,6 +121,11 @@
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-functions</artifactId>
 			<version>${version.jasperreports}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.mozilla</groupId>
+			<artifactId>rhino</artifactId>
+			<version>${version.rhino}</version>
 		</dependency>
 
 		<dependency>
