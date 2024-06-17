@@ -15,7 +15,7 @@ jobs:
         java: [11, 17, 21]
         exclude:
           - java: 11
-            maven: 4.0.0-alpha-13
+            maven: 4.0.0-beta-3
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
