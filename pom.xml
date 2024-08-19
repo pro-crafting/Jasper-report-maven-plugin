@@ -29,7 +29,7 @@
         <version.rhino>1.7.14</version.rhino>
 
 		<version.plexus-compiler-api>2.13.0</version.plexus-compiler-api>
-		<version.maven-plugin-annotations>3.5.2</version.maven-plugin-annotations>
+		<version.maven-plugin-annotations>3.14.0</version.maven-plugin-annotations>
 		<version.maven-plugin-api>3.5.2</version.maven-plugin-api>
 		<version.itf>0.13.1</version.itf>
 		<version.slf4j>1.7.36</version.slf4j>
