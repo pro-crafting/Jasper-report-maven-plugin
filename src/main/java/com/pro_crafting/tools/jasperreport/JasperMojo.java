@@ -36,7 +36,7 @@ public class JasperMojo extends AbstractMojo {
 	/**
 	 * This is the java compiler used
 	 */
-	@Parameter(defaultValue = "net.sf.jasperreports.engine.design.JRJdtCompiler")
+	@Parameter(defaultValue = "net.sf.jasperreports.jdt.JRJdtCompiler")
 	private String compiler;
 
 	/**

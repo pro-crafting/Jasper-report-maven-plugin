@@ -42,7 +42,7 @@ You can use the plugin by adding it to the plugin section in your pom:
 			</executions>
 			<configuration>
 				<!-- These are the default configurations: -->
-				<compiler>net.sf.jasperreports.engine.design.JRJdtCompiler</compiler>
+				<compiler>net.sf.jasperreports.jdt.JRJdtCompiler</compiler>
 				<sourceDirectory>src/main/jasperreports</sourceDirectory>
 				<outputDirectory>${project.build.directory}/jasper</outputDirectory>
 				<outputFileExt>.jasper</outputFileExt>
