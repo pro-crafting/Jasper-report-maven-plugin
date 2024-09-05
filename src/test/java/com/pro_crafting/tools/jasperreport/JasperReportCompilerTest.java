@@ -331,7 +331,6 @@ class JasperReportCompilerTest {
     private JasperMojoConfiguration buildDefaultConfiguration() {
         JasperMojoConfiguration configuration = new JasperMojoConfiguration();
 
-        configuration.xmlValidation = true;
         configuration.numberOfThreads = 4;
         configuration.compiler = "net.sf.jasperreports.jdt.JRJdtCompiler";
         configuration.outputDirectory = new File("target/jasper");

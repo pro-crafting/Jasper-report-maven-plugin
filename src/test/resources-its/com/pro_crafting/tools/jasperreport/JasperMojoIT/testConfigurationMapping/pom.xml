@@ -43,7 +43,6 @@
 					<outputDirectory>/outputDirectory</outputDirectory>
 					<sourceFileExt>sourceFileExt</sourceFileExt>
 					<outputFileExt>outputFileExt</outputFileExt>
-					<xmlValidation>false</xmlValidation>
 					<verbose>true</verbose>
 					<numberOfThreads>2</numberOfThreads>
 					<failOnMissingSourceDirectory>false</failOnMissingSourceDirectory>
