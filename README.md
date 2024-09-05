@@ -6,6 +6,13 @@ jasperreports-plugin
 
 This maven plugin compiles JasperReport report files to the target directory. 
 
+Migration to version 4
+----------
+
+The release of [JasperReports](https://github.com/TIBCOSoftware/jasperreports) version 7.0.0 introduced significant changes, including some breaking changes. As a result, this Maven plugin requires updates, and all reports must be manually migrated using Jasper Studio. For more details on the changes, please refer to the [release notes](https://github.com/TIBCOSoftware/jasperreports/releases/tag/7.0.0).
+
+Due to classpath conflicts, it is not possible to compile reports for versions below 7.0.0 and versions 7.0.0 or above using the same version of this plugin. To find the correct plugin version for your JasperReports version, please refer to the information at the bottom of this README.
+
 Migration to version 3
 ----------
 
@@ -136,6 +143,7 @@ The following table shows which JasperReports version is included during compila
 
 | Plugin Version | JasperReports Version |
 |----------------|-----------------------|
+| 4.0.0          | 7.0.0                 |
 | 3.6.2          | 6.21.3                |
 | 3.6.1          | 6.21.2                |
 | 3.6.0          | 6.21.0                |
