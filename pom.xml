@@ -89,6 +89,11 @@
 			<email>postremus1996@googlemail.com</email>
 			<timezone>+2</timezone>
 		</developer>
+		<developer>
+			<id>stouphix</id>
+			<name>مصطفى</name>
+			<email>Mustapha-chraiet@outlook.fr</email>
+		</developer>
 	</developers>
 
 	<dependencies>
