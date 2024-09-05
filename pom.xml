@@ -116,11 +116,13 @@
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-fonts</artifactId>
 			<version>${version.jasperreports}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-functions</artifactId>
 			<version>${version.jasperreports}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
@@ -131,27 +133,32 @@
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-charts</artifactId>
 			<version>${version.jasperreports}</version>
+			<scope>test</scope>
 		</dependency>
 
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-barbecue</artifactId>
 			<version>${version.jasperreports}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-javascript</artifactId>
 			<version>${version.jasperreports}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-hibernate</artifactId>
 			<version>${version.jasperreports}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-google-maps</artifactId>
 			<version>${version.jasperreports}</version>
+			<scope>test</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.mozilla</groupId>
