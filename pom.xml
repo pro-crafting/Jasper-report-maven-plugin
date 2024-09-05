@@ -24,7 +24,7 @@
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
 		<!-- Dependency Versions -->
-		<!-- Make sure that the following block of dependencies match the version used in jasper reports found at https://github.com/TIBCOSoftware/jasperreports/blob/master/jasperreports/pom-common.xml -->
+		<!-- Make sure that the following block of dependencies match the version used in jasper reports found at https://raw.githubusercontent.com/TIBCOSoftware/jasperreports/master/pom-parent.xml -->
         <version.jasperreports>7.0.0</version.jasperreports>
         <version.rhino>1.7.14</version.rhino>
 
