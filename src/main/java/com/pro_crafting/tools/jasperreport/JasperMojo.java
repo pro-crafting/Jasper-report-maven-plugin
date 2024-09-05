@@ -67,13 +67,6 @@ public class JasperMojo extends AbstractMojo {
 	private String outputFileExt;
 
 	/**
-	 * Check the source files before compiling. Default value is true.
-	 *
-	 */
-	@Parameter(defaultValue = "true")
-	private boolean xmlValidation;
-
-	/**
      * Set this to "true" to bypass compiling reports. Default value is false.
      *
      */
@@ -176,7 +169,6 @@ public class JasperMojo extends AbstractMojo {
 		configuration.sourceDirectory = sourceDirectory;
 		configuration.sourceFileExt = sourceFileExt;
 		configuration.outputFileExt = outputFileExt;
-		configuration.xmlValidation = xmlValidation;
 		configuration.skip = skip;
 		configuration.verbose = verbose;
 		configuration.numberOfThreads = numberOfThreads;
@@ -196,7 +188,6 @@ public class JasperMojo extends AbstractMojo {
 		LOGGER.info("Output ext: {}", configuration.outputFileExt);
 		LOGGER.info("Source ext: {}", configuration.sourceFileExt);
 		LOGGER.info("Additional properties: {}", configuration.additionalProperties);
-		LOGGER.info("XML Validation: {}", configuration.xmlValidation);
 		LOGGER.info("JasperReports Compiler: {}", configuration.compiler);
 		LOGGER.info("Number of threads: {}", configuration.numberOfThreads);
 		LOGGER.info("classpathElements: {}", configuration.classpathElements);

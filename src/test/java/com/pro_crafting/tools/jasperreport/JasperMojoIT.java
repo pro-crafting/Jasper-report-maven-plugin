@@ -5,7 +5,6 @@ import com.soebes.itf.jupiter.extension.MavenGoal;
 import com.soebes.itf.jupiter.extension.MavenJupiterExtension;
 import com.soebes.itf.jupiter.extension.MavenTest;
 import com.soebes.itf.jupiter.maven.MavenExecutionResult;
-import org.junit.jupiter.api.Assertions;
 
 import java.io.File;
 
@@ -26,7 +25,6 @@ class JasperMojoIT {
         MavenITAssertions.assertThat(result).out().info().contains("Output ext: outputFileExt");
         MavenITAssertions.assertThat(result).out().info().contains("Source ext: sourceFileExt");
         MavenITAssertions.assertThat(result).out().info().contains("Additional properties: {net.sf.jasperreports.awt.ignore.missing.font=true}");
-        MavenITAssertions.assertThat(result).out().info().contains("XML Validation: false");
         MavenITAssertions.assertThat(result).out().info().contains("JasperReports Compiler: compiler");
         MavenITAssertions.assertThat(result).out().info().contains("Number of threads: 2");
         MavenITAssertions.assertThat(result).out().info().contains("Additional Classpath: additionalClasspath");

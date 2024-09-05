@@ -17,8 +17,6 @@ public class JasperMojoConfiguration {
 
     public String outputFileExt;
 
-    public boolean xmlValidation;
-
     public boolean skip;
 
     public boolean verbose;
