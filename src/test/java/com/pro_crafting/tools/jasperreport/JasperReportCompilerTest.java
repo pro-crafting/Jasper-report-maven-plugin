@@ -1,6 +1,5 @@
 package com.pro_crafting.tools.jasperreport;
 
-import com.fasterxml.jackson.annotation.JsonTypeInfo;
 import net.sf.jasperreports.engine.DefaultJasperReportsContext;
 import net.sf.jasperreports.engine.JasperExportManager;
 import net.sf.jasperreports.engine.JasperFillManager;
@@ -334,7 +333,7 @@ class JasperReportCompilerTest {
 
         configuration.xmlValidation = true;
         configuration.numberOfThreads = 4;
-        configuration.compiler = "net.sf.jasperreports.engine.design.JRJdtCompiler";
+        configuration.compiler = "net.sf.jasperreports.jdt.JRJdtCompiler";
         configuration.outputDirectory = new File("target/jasper");
         configuration.sourceDirectory = new File("src/main/jasperreports");
         configuration.sourceFileExt = ".jrxml";

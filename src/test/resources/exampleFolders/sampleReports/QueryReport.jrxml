@@ -1,175 +1,95 @@
-<?xml version="1.0"?>
-
-<jasperReport 
-		xmlns="http://jasperreports.sourceforge.net/jasperreports"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
-		name="QueryReport" 
-		pageWidth="595" 
-		pageHeight="842" 
-		columnWidth="515" 
-		columnSpacing="0" 
-		leftMargin="40" 
-		rightMargin="40" 
-		topMargin="50" 
-		bottomMargin="50"
-		whenNoDataType="AllSectionsNoDetail"
-		isTitleNewPage="false"
-		isSummaryNewPage="false">
-	<template>"ReportStyles.jrtx"</template>
+<jasperReport name="QueryReport" language="java" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" uuid="d1f659d2-d796-4ce3-91e1-6e55fdecde2c">
+	<template><![CDATA["ReportStyles.jrtx"]]></template>
 	<parameter name="ReportTitle" class="java.lang.String"/>
 	<parameter name="ExcludedCities" class="java.util.Collection"/>
 	<parameter name="OrderClause" class="java.lang.String"/>
-	<queryString><![CDATA[SELECT * FROM Address WHERE $X{NOTIN, City, ExcludedCities} ORDER BY $P!{OrderClause}]]></queryString>
+	<query language="sql"><![CDATA[SELECT * FROM Address WHERE $X{NOTIN, City, ExcludedCities} ORDER BY $P!{OrderClause}]]></query>
 	<field name="Id" class="java.lang.Integer"/>
 	<field name="FirstName" class="java.lang.String"/>
 	<field name="LastName" class="java.lang.String"/>
 	<field name="Street" class="java.lang.String"/>
 	<field name="City" class="java.lang.String"/>
-	<variable name="CityNumber" class="java.lang.Integer" resetType="Group" resetGroup="CityGroup" calculation="System">
-		<initialValueExpression>($V{CityNumber} != null)?(Integer.valueOf($V{CityNumber}.intValue() + 1)):(Integer.valueOf(1))</initialValueExpression>
+	<variable name="CityNumber" resetType="Group" calculation="System" resetGroup="CityGroup" class="java.lang.Integer">
+		<initialValueExpression><![CDATA[($V{CityNumber} != null)?(Integer.valueOf($V{CityNumber}.intValue() + 1)):(Integer.valueOf(1))]]></initialValueExpression>
 	</variable>
 	<group name="CityGroup" minHeightToStartNewPage="60">
-		<groupExpression>
-			$F{City}
-		</groupExpression>
+		<expression><![CDATA[$F{City}]]></expression>
 		<groupHeader>
 			<band height="20">
-				<textField>
-					<reportElement x="0" y="4" width="515" height="16" backcolor="#C0C0C0" mode="Opaque" style="Sans_Bold"/>
-					<box>
-						<bottomPen lineWidth="1"/>
+				<element kind="textField" uuid="53a917ee-a50b-4c2b-8c8c-60d9554a6a42" mode="Opaque" x="0" y="4" width="515" height="16" backcolor="#C0C0C0" hTextAlign="Left" style="Sans_Bold">
+					<expression><![CDATA["  " + String.valueOf($V{CityNumber}) + ". " + String.valueOf($F{City})]]></expression>
+					<box style="Sans_Bold">
+						<bottomPen lineWidth="1.0"/>
 					</box>
-					<textElement textAlignment="Left"/>
-					<textFieldExpression class="java.lang.String">
-						"  " + String.valueOf($V{CityNumber}) + ". " + String.valueOf($F{City})
-					</textFieldExpression>
-				</textField>
+				</element>
 			</band>
 		</groupHeader>
 		<groupFooter>
 			<band height="20">
-				<line>
-					<reportElement x="0" y="-1" width="515" height="0"/>
-				</line>
-				<staticText>
-					<reportElement x="400" y="0" width="60" height="15" style="Sans_Bold"/>
-					<textElement textAlignment="Right">
-						<paragraph lineSpacing="Single"/>
-					</textElement>
-					<text>Count : </text>
-				</staticText>
-				<textField>
-					<reportElement x="460" y="0" width="30" height="15" style="Sans_Bold"/>
-					<textElement textAlignment="Right">
-						<paragraph lineSpacing="Single"/>
-					</textElement>
-					<textFieldExpression class="java.lang.Integer">
-						$V{CityGroup_COUNT}
-					</textFieldExpression>
-				</textField>
+				<element kind="line" uuid="d66a43cb-e2a6-4316-bb57-36edf2fb71f9" x="0" y="-1" width="515" height="1"/>
+				<element kind="staticText" uuid="90aceaee-78ff-4a9b-94e8-6519cf960299" x="400" y="0" width="60" height="15" hTextAlign="Right" style="Sans_Bold">
+					<paragraph lineSpacing="Single" style="Sans_Bold"/>
+					<text><![CDATA[Count : ]]></text>
+				</element>
+				<element kind="textField" uuid="b073e5a9-bd23-47ed-9890-3ddcc0536278" x="460" y="0" width="30" height="15" hTextAlign="Right" style="Sans_Bold">
+					<paragraph lineSpacing="Single" style="Sans_Bold"/>
+					<expression><![CDATA[$V{CityGroup_COUNT}]]></expression>
+				</element>
 			</band>
 		</groupFooter>
 	</group>
-	<background>
-		<band height="742">
-			<image scaleImage="Clip" hAlign="Left" vAlign="Bottom">
-				<reportElement x="0" y="0" width="150" height="742"/>
-				<imageExpression>"jr.watermark.gif"</imageExpression>
-			</image>
-		</band>
+	<background height="742">
+		<element kind="image" uuid="641c564d-1824-44d6-8b06-993e9091f1e2" x="0" y="0" width="150" height="742" scaleImage="Clip" hImageAlign="Left" vImageAlign="Bottom">
+			<expression><![CDATA["jr.watermark.gif"]]></expression>
+		</element>
 	</background>
-	<title>
-		<band height="50">
-			<line>
-				<reportElement x="0" y="0" width="515" height="0" forecolor="black"/>
-			</line>
-			<textField isBlankWhenNull="true">
-				<reportElement x="0" y="10" width="515" height="30" style="Sans_Normal"/>
-				<textElement textAlignment="Center">
-					<font size="22"/>
-					<paragraph lineSpacing="Single"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String">$P{ReportTitle}</textFieldExpression>
-			</textField>
-		</band>
+	<title height="50">
+		<element kind="line" uuid="9da05b94-4a46-4806-804c-f7c24c24802e" x="0" y="0" width="515" height="1" forecolor="#000000"/>
+		<element kind="textField" uuid="c18d9e0a-0df1-48ab-804d-bcd9fcf4c526" x="0" y="10" width="515" height="30" fontSize="22.0" blankWhenNull="true" hTextAlign="Center" style="Sans_Normal">
+			<paragraph lineSpacing="Single" style="Sans_Normal"/>
+			<expression><![CDATA[$P{ReportTitle}]]></expression>
+		</element>
 	</title>
-	<pageHeader>
-		<band height="20">
-			<staticText>
-				<reportElement x="0" y="5" width="55" height="15" forecolor="white" backcolor="#333333" mode="Opaque" style="Sans_Bold"/>
-				<textElement textAlignment="Center"/>
-				<text>ID</text>
-			</staticText>
-			<staticText>
-				<reportElement x="55" y="5" width="205" height="15" forecolor="white" backcolor="#333333" mode="Opaque" style="Sans_Bold"/>
-				<text>Name</text>
-			</staticText>
-			<staticText>
-				<reportElement x="260" y="5" width="255" height="15" forecolor="white" backcolor="#333333" mode="Opaque" style="Sans_Bold"/>
-				<text>Street</text>
-			</staticText>
-		</band>
+	<pageHeader height="20">
+		<element kind="staticText" uuid="8fecc171-a197-43db-8341-e1bc93bc5a7f" mode="Opaque" x="0" y="5" width="55" height="15" forecolor="#FFFFFF" backcolor="#333333" hTextAlign="Center" style="Sans_Bold">
+			<text><![CDATA[ID]]></text>
+		</element>
+		<element kind="staticText" uuid="452bade2-f5fd-4079-bbc9-710d11af4af1" mode="Opaque" x="55" y="5" width="205" height="15" forecolor="#FFFFFF" backcolor="#333333" style="Sans_Bold">
+			<text><![CDATA[Name]]></text>
+		</element>
+		<element kind="staticText" uuid="87dc7d81-e6eb-4ebe-bf0c-c43fb6ebcb80" mode="Opaque" x="260" y="5" width="255" height="15" forecolor="#FFFFFF" backcolor="#333333" style="Sans_Bold">
+			<text><![CDATA[Street]]></text>
+		</element>
 	</pageHeader>
 	<detail>
 		<band height="20">
-			<textField>
-				<reportElement x="0" y="4" width="50" height="15"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression class="java.lang.Integer">
-					$F{Id}
-				</textFieldExpression>
-			</textField>
-			<textField textAdjust="StretchHeight">
-				<reportElement x="55" y="4" width="200" height="15" positionType="Float"/>
-				<textFieldExpression class="java.lang.String">
-					$F{FirstName} + " " + $F{LastName}
-				</textFieldExpression>
-			</textField>
-			<textField textAdjust="StretchHeight">
-				<reportElement x="260" y="4" width="255" height="15" positionType="Float"/>
-				<textFieldExpression class="java.lang.String">
-					$F{Street}
-				</textFieldExpression>
-			</textField>
-			<line>
-				<reportElement x="0" y="19" width="515" height="0" forecolor="#808080" positionType="Float"/>
-			</line>
+			<element kind="textField" uuid="5d4e46de-6f99-47bf-9210-05e13ddbf3a7" x="0" y="4" width="50" height="15" hTextAlign="Right">
+				<expression><![CDATA[$F{Id}]]></expression>
+			</element>
+			<element kind="textField" uuid="b4e7cabf-f57e-4ed7-9d1a-7390d0d8d927" positionType="Float" x="55" y="4" width="200" height="15" textAdjust="StretchHeight">
+				<expression><![CDATA[$F{FirstName} + " " + $F{LastName}]]></expression>
+			</element>
+			<element kind="textField" uuid="d51f548a-93d2-4a4d-9462-74658666de9e" positionType="Float" x="260" y="4" width="255" height="15" textAdjust="StretchHeight">
+				<expression><![CDATA[$F{Street}]]></expression>
+			</element>
+			<element kind="line" uuid="f95796a5-0856-46c4-9127-c9de9ed5c4d4" positionType="Float" x="0" y="19" width="515" height="1" forecolor="#808080"/>
 		</band>
 	</detail>
-	<pageFooter>
-		<band height="40">
-			<printWhenExpression>$P{IS_IGNORE_PAGINATION}.booleanValue()?Boolean.FALSE:Boolean.TRUE</printWhenExpression>
-			<line>
-				<reportElement x="0" y="10" width="515" height="0"/>
-			</line>
-			<textField>
-				<reportElement x="200" y="20" width="80" height="15"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression class="java.lang.String">
-					"Page " + String.valueOf($V{PAGE_NUMBER}) + " of"
-				</textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="280" y="20" width="75" height="15"/>
-				<textElement textAlignment="Left"/>
-				<textFieldExpression class="java.lang.String">
-					" " + String.valueOf($V{PAGE_NUMBER})
-				</textFieldExpression>
-			</textField>
-		</band>
+	<pageFooter height="40">
+		<printWhenExpression><![CDATA[$P{IS_IGNORE_PAGINATION}.booleanValue()?Boolean.FALSE:Boolean.TRUE]]></printWhenExpression>
+		<element kind="line" uuid="2e9db3eb-9be3-44ed-93a0-cd25aa674167" x="0" y="10" width="515" height="1"/>
+		<element kind="textField" uuid="9593e677-2d7a-4060-ad47-aac6ceb1b1c3" x="200" y="20" width="80" height="15" hTextAlign="Right">
+			<expression><![CDATA["Page " + String.valueOf($V{PAGE_NUMBER}) + " of"]]></expression>
+		</element>
+		<element kind="textField" uuid="895bdd58-23b6-46f3-8111-ea838b20c3cc" x="280" y="20" width="75" height="15" evaluationTime="Report" hTextAlign="Left">
+			<expression><![CDATA[" " + String.valueOf($V{PAGE_NUMBER})]]></expression>
+		</element>
 	</pageFooter>
-	<summary>
-		<band height="60">
-			<textField textAdjust="StretchHeight">
-				<reportElement x="175" y="20" width="165" height="15" style="Sans_Italic"/>
-				<textElement textAlignment="Center"/>
-				<textFieldExpression class="java.lang.String">
-					"There were " + 
+	<summary height="60">
+		<element kind="textField" uuid="73ed912d-243f-4ea7-b181-123c3c894f14" x="175" y="20" width="165" height="15" textAdjust="StretchHeight" hTextAlign="Center" style="Sans_Italic">
+			<expression><![CDATA["There were " + 
 					String.valueOf($V{REPORT_COUNT}) + 
-					" address records on this report."
-				</textFieldExpression>
-			</textField>
-		</band>
+					" address records on this report."]]></expression>
+		</element>
 	</summary>
 </jasperReport>

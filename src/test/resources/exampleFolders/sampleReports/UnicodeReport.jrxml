@@ -1,108 +1,61 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="UnicodeReport" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30">
-	<parameter name="GreekText" class="java.lang.String" isForPrompting="false">
+<jasperReport name="UnicodeReport" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="b93ed751-5e0a-4c22-ac2d-0a43a0bc54e9">
+	<parameter name="GreekText" forPrompting="false" class="java.lang.String">
 		<defaultValueExpression><![CDATA["\u0393 \u0394 \u0398 \u039B \u039E \u03A0 \u03A3 \u03A6 \u03A8 \u03A9"]]></defaultValueExpression>
 	</parameter>
-	<parameter name="CyrillicText" class="java.lang.String" isForPrompting="false">
+	<parameter name="CyrillicText" forPrompting="false" class="java.lang.String">
 		<defaultValueExpression><![CDATA["\u0402 \u040B \u040F \u0414 \u0416 \u0418 \u041B \u0426 \u0429 \u042E"]]></defaultValueExpression>
 	</parameter>
-	<parameter name="ChineseText" class="java.lang.String" isForPrompting="false">
+	<parameter name="ChineseText" forPrompting="false" class="java.lang.String">
 		<defaultValueExpression><![CDATA["\u6211\u559c\u6b22\u4e2d\u56fd\u98df\u7269"]]></defaultValueExpression>
 	</parameter>
-	<parameter name="ArabicText" class="java.lang.String" isForPrompting="false">
+	<parameter name="ArabicText" forPrompting="false" class="java.lang.String">
 		<defaultValueExpression><![CDATA["\u0647\u0630\u0627 \u0639\u0631\u0636 \u0644\u0645\u062C\u0645\u0648\u0639\u0629 TextLayout"]]></defaultValueExpression>
 	</parameter>
-	<parameter name="HebrewText" class="java.lang.String" isForPrompting="false">
+	<parameter name="HebrewText" forPrompting="false" class="java.lang.String">
 		<defaultValueExpression><![CDATA["\u05D0\u05E0\u05D9 \u05DC\u05D0 \u05DE\u05D1\u05D9\u05DF \u05E2\u05D1\u05E8\u05D9\u05EA"]]></defaultValueExpression>
 	</parameter>
-	<title>
-		<band height="782">
-			<textField>
-				<reportElement x="0" y="50" width="200" height="60"/>
-				<textElement>
-					<font fontName="DejaVu Sans" size="14"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{GreekText} + "\n" + $P{CyrillicText}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="210" y="50" width="340" height="60"/>
-				<textElement/>
-				<text><![CDATA[<textField><reportElement x="0" y="50" width="200" height="60"/><textElement><font fontName="DejaVu Sans" size="14"/></textElement><textFieldExpression>$P{GreekText} + "     " + $P{CyrillicText}</textFieldExpression></textField>]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="0" y="120" width="200" height="60"/>
-				<textElement>
-					<font fontName="DejaVu Sans" size="14" isBold="true"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{GreekText} + "\n" + $P{CyrillicText}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="210" y="120" width="340" height="60"/>
-				<textElement/>
-				<text><![CDATA[<textField><reportElement x="0" y="120" width="200" height="60"/><textElement><font fontName="DejaVu Sans" size="14" isBold="true"/></textElement><textFieldExpression>$P{GreekText} + "     " + $P{CyrillicText}</textFieldExpression></textField>]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="0" y="190" width="200" height="60"/>
-				<textElement>
-					<font fontName="DejaVu Sans" size="14" isItalic="true" isUnderline="true"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{GreekText} + "\n" + $P{CyrillicText}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="210" y="190" width="340" height="60"/>
-				<textElement/>
-				<text><![CDATA[<textField><reportElement x="0" y="190" width="200" height="60"/><textElement><font fontName="DejaVu Sans" size="14" isItalic="true" isUnderline="true"/></textElement><textFieldExpression>$P{GreekText} + "     " + $P{CyrillicText}</textFieldExpression></textField>]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="0" y="260" width="200" height="60"/>
-				<textElement>
-					<font fontName="DejaVu Sans" size="14" isBold="true" isItalic="true" isUnderline="true"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{GreekText} + "\n" + $P{CyrillicText}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="210" y="260" width="340" height="60"/>
-				<textElement/>
-				<text><![CDATA[<textField><reportElement x="0" y="260" width="200" height="60"/><textElement><font fontName="DejaVu Sans" size="14" isBold="true" isItalic="true" isUnderline="true"/></textElement><textFieldExpression>$P{GreekText} + "     " + $P{CyrillicText}</textFieldExpression></textField>]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="0" y="330" width="200" height="60"/>
-				<textElement>
-					<font fontName="AR PL KaitiM GB" size="22"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{ChineseText}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="210" y="330" width="340" height="60"/>
-				<textElement/>
-				<text><![CDATA[<textField><reportElement x="0" y="330" width="200" height="60"/><textElement><font fontName="AR PL KaitiM GB" size="22"/></textElement><textFieldExpression class="java.lang.String">$P{ChineseText}</textFieldExpression></textField>]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="0" y="400" width="200" height="60"/>
-				<textElement>
-					<font fontName="AR PL KaitiM GB" size="22" isBold="true" isItalic="true" isUnderline="true"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{ChineseText}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement x="210" y="400" width="340" height="60"/>
-				<textElement/>
-				<text><![CDATA[<textField><reportElement x="0" y="400" width="200" height="60"/><textElement><font fontName="AR PL KaitiM GB" size="22" isBold="true" isItalic="true" isUnderline="true"/></textElement><textFieldExpression class="java.lang.String">$P{ChineseText}</textFieldExpression></textField>]]></text>
-			</staticText>
-			<textField>
-				<reportElement x="100" y="500" width="350" height="50"/>
-				<textElement textAlignment="Right">
-					<font fontName="DejaVu Sans" size="22"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{ArabicText}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="100" y="600" width="350" height="50"/>
-				<textElement textAlignment="Right">
-					<font fontName="DejaVu Sans" size="22"/>
-				</textElement>
-				<textFieldExpression class="java.lang.String"><![CDATA[$P{HebrewText}]]></textFieldExpression>
-			</textField>
-		</band>
+	<title height="782">
+		<element kind="textField" uuid="938f077b-0fdf-4b6e-9e9c-0c7f4ae71d15" x="0" y="50" width="200" height="60" fontName="DejaVu Sans" fontSize="14.0">
+			<expression><![CDATA[$P{GreekText} + "\n" + $P{CyrillicText}]]></expression>
+		</element>
+		<element kind="staticText" uuid="8baf590a-0a3c-405d-8785-29186b1a2125" x="210" y="50" width="340" height="60">
+			<text><![CDATA[<textField><reportElement x="0" y="50" width="200" height="60"/><textElement><font fontName="DejaVu Sans" size="14"/></textElement><textFieldExpression>$P{GreekText} + "     " + $P{CyrillicText}</textFieldExpression></textField>]]></text>
+		</element>
+		<element kind="textField" uuid="f8732ecb-6bb0-44e2-aa01-8e460bf73e26" x="0" y="120" width="200" height="60" fontName="DejaVu Sans" fontSize="14.0" bold="true">
+			<expression><![CDATA[$P{GreekText} + "\n" + $P{CyrillicText}]]></expression>
+		</element>
+		<element kind="staticText" uuid="6c4bb92f-466c-4f07-bb55-4d209f594cb9" x="210" y="120" width="340" height="60">
+			<text><![CDATA[<textField><reportElement x="0" y="120" width="200" height="60"/><textElement><font fontName="DejaVu Sans" size="14" isBold="true"/></textElement><textFieldExpression>$P{GreekText} + "     " + $P{CyrillicText}</textFieldExpression></textField>]]></text>
+		</element>
+		<element kind="textField" uuid="ff37c3b7-d81b-4509-a9a1-97f5716f46c1" x="0" y="190" width="200" height="60" fontName="DejaVu Sans" fontSize="14.0" italic="true" underline="true">
+			<expression><![CDATA[$P{GreekText} + "\n" + $P{CyrillicText}]]></expression>
+		</element>
+		<element kind="staticText" uuid="dce99f14-4924-4e43-beae-aaa0ca25a92e" x="210" y="190" width="340" height="60">
+			<text><![CDATA[<textField><reportElement x="0" y="190" width="200" height="60"/><textElement><font fontName="DejaVu Sans" size="14" isItalic="true" isUnderline="true"/></textElement><textFieldExpression>$P{GreekText} + "     " + $P{CyrillicText}</textFieldExpression></textField>]]></text>
+		</element>
+		<element kind="textField" uuid="876aff44-d127-4aa5-83b6-5473460c85e1" x="0" y="260" width="200" height="60" fontName="DejaVu Sans" fontSize="14.0" bold="true" italic="true" underline="true">
+			<expression><![CDATA[$P{GreekText} + "\n" + $P{CyrillicText}]]></expression>
+		</element>
+		<element kind="staticText" uuid="456829a3-96d3-405a-955c-dc5574de342b" x="210" y="260" width="340" height="60">
+			<text><![CDATA[<textField><reportElement x="0" y="260" width="200" height="60"/><textElement><font fontName="DejaVu Sans" size="14" isBold="true" isItalic="true" isUnderline="true"/></textElement><textFieldExpression>$P{GreekText} + "     " + $P{CyrillicText}</textFieldExpression></textField>]]></text>
+		</element>
+		<element kind="textField" uuid="8077887e-80b2-4c38-a53d-3a9d97503a31" x="0" y="330" width="200" height="60" fontName="AR PL KaitiM GB" fontSize="22.0">
+			<expression><![CDATA[$P{ChineseText}]]></expression>
+		</element>
+		<element kind="staticText" uuid="a70e339e-a4c7-44fb-9df9-b4af021debea" x="210" y="330" width="340" height="60">
+			<text><![CDATA[<textField><reportElement x="0" y="330" width="200" height="60"/><textElement><font fontName="AR PL KaitiM GB" size="22"/></textElement><textFieldExpression class="java.lang.String">$P{ChineseText}</textFieldExpression></textField>]]></text>
+		</element>
+		<element kind="textField" uuid="dafb0a78-2be9-4ebe-b882-630755b3a74b" x="0" y="400" width="200" height="60" fontName="AR PL KaitiM GB" fontSize="22.0" bold="true" italic="true" underline="true">
+			<expression><![CDATA[$P{ChineseText}]]></expression>
+		</element>
+		<element kind="staticText" uuid="5aa0ab64-012a-4d0c-8d36-df552b1bff74" x="210" y="400" width="340" height="60">
+			<text><![CDATA[<textField><reportElement x="0" y="400" width="200" height="60"/><textElement><font fontName="AR PL KaitiM GB" size="22" isBold="true" isItalic="true" isUnderline="true"/></textElement><textFieldExpression class="java.lang.String">$P{ChineseText}</textFieldExpression></textField>]]></text>
+		</element>
+		<element kind="textField" uuid="93b614c7-07ba-4952-99a6-c6635ec943be" x="100" y="500" width="350" height="50" fontName="DejaVu Sans" fontSize="22.0" hTextAlign="Right">
+			<expression><![CDATA[$P{ArabicText}]]></expression>
+		</element>
+		<element kind="textField" uuid="ab098e88-135d-4b07-b533-f0709963f19b" x="100" y="600" width="350" height="50" fontName="DejaVu Sans" fontSize="22.0" hTextAlign="Right">
+			<expression><![CDATA[$P{HebrewText}]]></expression>
+		</element>
 	</title>
 </jasperReport>

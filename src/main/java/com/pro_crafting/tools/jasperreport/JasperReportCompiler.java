@@ -5,8 +5,7 @@ import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JRPropertiesUtil;
 import net.sf.jasperreports.engine.JRReport;
 import net.sf.jasperreports.engine.design.JRCompiler;
-import net.sf.jasperreports.engine.design.JRJdtCompiler;
-import net.sf.jasperreports.engine.xml.JRReportSaxParserFactory;
+import net.sf.jasperreports.jdt.JRJdtCompiler;
 import org.apache.maven.plugin.MojoExecutionException;
 import org.codehaus.plexus.compiler.util.scan.InclusionScanException;
 import org.codehaus.plexus.compiler.util.scan.SimpleSourceInclusionScanner;
@@ -131,7 +130,6 @@ public class JasperReportCompiler {
     private void configureJasper() {
         DefaultJasperReportsContext jrContext = DefaultJasperReportsContext.getInstance();
 
-        jrContext.setProperty(JRReportSaxParserFactory.COMPILER_XML_VALIDATION, String.valueOf(configuration.xmlValidation));
         jrContext.setProperty(JRCompiler.COMPILER_PREFIX + JRReport.LANGUAGE_JAVA, configuration.compiler == null ? JRJdtCompiler.class.getName() : configuration.compiler);
 
         if (configuration.additionalProperties != null) {

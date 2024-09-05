@@ -2,7 +2,8 @@ package com.pro_crafting.tools.jasperreport;
 
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperReportsContext;
-import net.sf.jasperreports.engine.design.JRJdtCompiler;
+import net.sf.jasperreports.jdt.JRJdtCompiler;
+
 
 public class TestCompilerConfigurationCompiler extends JRJdtCompiler {
     public TestCompilerConfigurationCompiler(JasperReportsContext jasperReportsContext) {

@@ -25,7 +25,7 @@
 
 		<!-- Dependency Versions -->
 		<!-- Make sure that the following block of dependencies match the version used in jasper reports found at https://github.com/TIBCOSoftware/jasperreports/blob/master/jasperreports/pom-common.xml -->
-        <version.jasperreports>6.21.3</version.jasperreports>
+        <version.jasperreports>7.0.0</version.jasperreports>
         <version.rhino>1.7.14</version.rhino>
 
 		<version.plexus-compiler-api>2.13.0</version.plexus-compiler-api>
@@ -120,6 +120,37 @@
 		<dependency>
 			<groupId>net.sf.jasperreports</groupId>
 			<artifactId>jasperreports-functions</artifactId>
+			<version>${version.jasperreports}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-jdt</artifactId>
+			<version>${version.jasperreports}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-charts</artifactId>
+			<version>${version.jasperreports}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-barbecue</artifactId>
+			<version>${version.jasperreports}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-javascript</artifactId>
+			<version>${version.jasperreports}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-hibernate</artifactId>
+			<version>${version.jasperreports}</version>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-google-maps</artifactId>
 			<version>${version.jasperreports}</version>
 		</dependency>
 		<dependency>

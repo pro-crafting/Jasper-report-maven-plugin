@@ -1,120 +1,75 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-
-<jasperReport
-		xmlns="http://jasperreports.sourceforge.net/jasperreports"
-		xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-		xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
-		name="HorizontalListReport" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50">
-	<style name="Sans_Normal" isDefault="true" fontName="DejaVu Sans" fontSize="12" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
-	<style name="Sans_Bold" isDefault="false" fontName="DejaVu Sans" fontSize="12" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
-	<style name="Sans_Italic" isDefault="false" fontName="DejaVu Sans" fontSize="12" isBold="false" isItalic="true" isUnderline="false" isStrikeThrough="false"/>
-	<style name="Sans_Small" isDefault="false" fontName="DejaVu Sans" fontSize="10" isBold="false" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
-	<style name="Sans_SmallBold" isDefault="false" fontName="DejaVu Sans" fontSize="10" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false"/>
-	<style name="ListCell"  mode="Opaque" backcolor="#fbf1da"/>
-	<subDataset name="Addresses">
-		<parameter name="City" class="java.lang.String">
-		</parameter>
-		<queryString><![CDATA[SELECT * FROM Address WHERE City = $P{City} ORDER BY LastName, FirstName]]></queryString>
-		<field name="Id" class="java.lang.Integer">
-		</field>
-		<field name="FirstName" class="java.lang.String">
-		</field>
-		<field name="LastName" class="java.lang.String">
-		</field>
-		<field name="Street" class="java.lang.String">
-		</field>
-		<field name="City" class="java.lang.String">
-		</field>
-	</subDataset>
-	<queryString><![CDATA[SELECT City FROM Address GROUP BY City ORDER BY City]]></queryString>
-	<field name="City" class="java.lang.String">
-	</field>
-	<title>
-		<band height="40">
-			<line>
-				<reportElement x="0" y="0" width="515" height="1"/>
-				<graphicElement/>
-			</line>
-			<staticText>
-				<reportElement x="0" y="10" width="515" height="30" style="Sans_Normal"/>
-				<textElement textAlignment="Center">
-					<font size="22"/>
-				</textElement>
-				<text><![CDATA[Addresses Report]]></text>
-			</staticText>
-		</band>
+<jasperReport name="HorizontalListReport" language="java" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" uuid="268251b4-fc7b-4b24-bf01-16de68a54630">
+	<style name="Sans_Normal" default="true" fontName="DejaVu Sans" fontSize="12.0" bold="false" italic="false" underline="false" strikeThrough="false"/>
+	<style name="Sans_Bold" fontName="DejaVu Sans" fontSize="12.0" bold="true" italic="false" underline="false" strikeThrough="false"/>
+	<style name="Sans_Italic" fontName="DejaVu Sans" fontSize="12.0" bold="false" italic="true" underline="false" strikeThrough="false"/>
+	<style name="Sans_Small" fontName="DejaVu Sans" fontSize="10.0" bold="false" italic="false" underline="false" strikeThrough="false"/>
+	<style name="Sans_SmallBold" fontName="DejaVu Sans" fontSize="10.0" bold="true" italic="false" underline="false" strikeThrough="false"/>
+	<style name="ListCell" mode="Opaque" backcolor="#FBF1DA"/>
+	<dataset name="Addresses" uuid="7ba1b4c1-eca8-4283-96c0-8b1a82ae8dbd">
+		<parameter name="City" class="java.lang.String"/>
+		<query language="sql"><![CDATA[SELECT * FROM Address WHERE City = $P{City} ORDER BY LastName, FirstName]]></query>
+		<field name="Id" class="java.lang.Integer"/>
+		<field name="FirstName" class="java.lang.String"/>
+		<field name="LastName" class="java.lang.String"/>
+		<field name="Street" class="java.lang.String"/>
+		<field name="City" class="java.lang.String"/>
+	</dataset>
+	<query language="sql"><![CDATA[SELECT City FROM Address GROUP BY City ORDER BY City]]></query>
+	<field name="City" class="java.lang.String"/>
+	<title height="40">
+		<element kind="line" uuid="a4fb0a8e-952c-4a91-96ed-b1708b32c729" x="0" y="0" width="515" height="1"/>
+		<element kind="staticText" uuid="b6f287d8-c7e5-4735-a579-7231e861872b" x="0" y="10" width="515" height="30" fontSize="22.0" hTextAlign="Center" style="Sans_Normal">
+			<text><![CDATA[Addresses Report]]></text>
+		</element>
 	</title>
-	<pageHeader>
-		<band height="21">
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="5" width="515" height="15" forecolor="#ffffff" backcolor="#333333" style="Sans_Bold"/>
-				<text><![CDATA[Addresses List]]></text>
-			</staticText>
-		</band>
+	<pageHeader height="21">
+		<element kind="staticText" uuid="83975eea-a3d5-4000-88bf-1b959d9f15e4" mode="Opaque" x="0" y="5" width="515" height="15" forecolor="#FFFFFF" backcolor="#333333" style="Sans_Bold">
+			<text><![CDATA[Addresses List]]></text>
+		</element>
 	</pageHeader>
 	<detail>
 		<band height="65">
-			<textField>
-				<reportElement x="5" y="5" width="100" height="15" isPrintWhenDetailOverflows="true" style="Sans_Bold"/>
-				<textFieldExpression class="java.lang.String"><![CDATA[$F{City}]]></textFieldExpression>
-			</textField>
-			<staticText>
-				<reportElement isPrintRepeatedValues="false" x="110" y="5" width="100" height="15" isPrintWhenDetailOverflows="true" style="Sans_Bold"/>
+			<element kind="textField" uuid="2641964f-3137-40dd-9276-4bcebe105f4d" x="5" y="5" width="100" height="15" printWhenDetailOverflows="true" style="Sans_Bold">
+				<expression><![CDATA[$F{City}]]></expression>
+			</element>
+			<element kind="staticText" uuid="4ad160eb-4ac1-4bb2-9238-9fcb5c99cc83" x="110" y="5" width="100" height="15" printWhenDetailOverflows="true" printRepeatedValues="false" style="Sans_Bold">
 				<text><![CDATA[(continued)]]></text>
-			</staticText>
-			<componentElement>
-				<reportElement x="0" y="25" width="515" height="40"/>
-				<c:list xmlns:c="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd" printOrder="Horizontal">
-					<datasetRun subDataset="Addresses">
-						<datasetParameter name="City">
-							<datasetParameterExpression><![CDATA[$F{City}]]></datasetParameterExpression>
-						</datasetParameter>
+			</element>
+			<element kind="component" uuid="0b994234-ccd1-4d6e-a75a-dd7fbff53c2c" x="0" y="25" width="515" height="40">
+				<component kind="list" printOrder="Horizontal">
+					<datasetRun uuid="fd2f4b34-0499-43bb-94ee-833a14f4f7ee" subDataset="Addresses">
+						<parameter name="City">
+							<expression><![CDATA[$F{City}]]></expression>
+						</parameter>
 					</datasetRun>
-					<c:listContents height="40" width="128">
-						<frame>
-							<reportElement x="4" y="0" width="120" height="38" style="ListCell" stretchType="RelativeToBandHeight"/>
-							<box>
-								<topPen lineWidth=".5"/>
-								<bottomPen lineWidth=".5"/>
+					<contents height="40" width="128">
+						<element kind="frame" uuid="cf9ade26-1a4b-4554-aa79-f47eddb30b45" stretchType="ContainerHeight" x="4" y="0" width="120" height="38" style="ListCell">
+							<element kind="textField" uuid="bcb62bf9-d199-4a56-aa91-698e5d453483" x="0" y="2" width="100" height="12" style="Sans_SmallBold">
+								<expression><![CDATA["#" + $V{REPORT_COUNT} + " - " + $F{Id}]]></expression>
+							</element>
+							<element kind="textField" uuid="c188f02a-6b44-4a3a-9247-5d1e3381dbdf" positionType="Float" x="10" y="14" width="110" height="12" textAdjust="StretchHeight" style="Sans_Small">
+								<expression><![CDATA[$F{FirstName} + " " + $F{LastName}]]></expression>
+							</element>
+							<element kind="textField" uuid="594d201b-dfbc-471d-b14d-f175c7fbe6fc" positionType="Float" x="10" y="26" width="110" height="12" textAdjust="StretchHeight" style="Sans_Small">
+								<expression><![CDATA[$F{Street} + ", " + $F{City}]]></expression>
+							</element>
+							<box style="ListCell">
+								<topPen lineWidth="0.5"/>
+								<bottomPen lineWidth="0.5"/>
 							</box>
-							<textField>
-								<reportElement x="0" y="2" width="100" height="12" style="Sans_SmallBold"/>
-								<textElement/>
-								<textFieldExpression><![CDATA["#" + $V{REPORT_COUNT} + " - " + $F{Id}]]></textFieldExpression>
-							</textField>
-							<textField textAdjust="StretchHeight">
-								<reportElement positionType="Float" x="10" y="14" width="110" height="12" style="Sans_Small"/>
-								<textElement/>
-								<textFieldExpression class="java.lang.String"><![CDATA[$F{FirstName} + " " + $F{LastName}]]></textFieldExpression>
-							</textField>
-							<textField textAdjust="StretchHeight">
-								<reportElement positionType="Float" x="10" y="26" width="110" height="12" style="Sans_Small"/>
-								<textElement/>
-								<textFieldExpression class="java.lang.String"><![CDATA[$F{Street} + ", " + $F{City}]]></textFieldExpression>
-							</textField>
-						</frame>
-					</c:listContents>
-				</c:list>
-			</componentElement>
+						</element>
+					</contents>
+				</component>
+			</element>
 		</band>
 	</detail>
-	<pageFooter>
-		<band height="40">
-			<line>
-				<reportElement x="0" y="10" width="515" height="1"/>
-				<graphicElement/>
-			</line>
-			<textField>
-				<reportElement x="200" y="20" width="80" height="15"/>
-				<textElement textAlignment="Right"/>
-				<textFieldExpression class="java.lang.String"><![CDATA["Page " + String.valueOf($V{PAGE_NUMBER}) + " of"]]></textFieldExpression>
-			</textField>
-			<textField evaluationTime="Report">
-				<reportElement x="280" y="20" width="75" height="15"/>
-				<textElement/>
-				<textFieldExpression class="java.lang.String"><![CDATA[" " + String.valueOf($V{PAGE_NUMBER})]]></textFieldExpression>
-			</textField>
-		</band>
+	<pageFooter height="40">
+		<element kind="line" uuid="7ab5dbbd-ef3d-49c3-942f-4227962cef6a" x="0" y="10" width="515" height="1"/>
+		<element kind="textField" uuid="fe498f48-3925-4f62-ae7d-a8c09f611b8d" x="200" y="20" width="80" height="15" hTextAlign="Right">
+			<expression><![CDATA["Page " + String.valueOf($V{PAGE_NUMBER}) + " of"]]></expression>
+		</element>
+		<element kind="textField" uuid="20c8d020-66a6-4ff3-9839-bb2f2c2200f5" x="280" y="20" width="75" height="15" evaluationTime="Report">
+			<expression><![CDATA[" " + String.valueOf($V{PAGE_NUMBER})]]></expression>
+		</element>
 	</pageFooter>
 </jasperReport>
