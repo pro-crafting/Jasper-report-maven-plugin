@@ -36,7 +36,7 @@ class JasperReportCompilerTest {
      * Test the normal generation of Jasper reports. The files are retrieved from the official
      * jasper examples folder. No errors or warnings should occur.
      *
-     * @throws Exception When an unexpexted error occures.
+     * @throws Exception When an unexpected error occurs.
      */
     @Test
     void testValidReportGeneration() throws Exception {
@@ -94,7 +94,7 @@ class JasperReportCompilerTest {
      * Test the normal generation of Jasper reports with additional properties. The files are
      * retrieved from the official jasper examples folder. No errors or warnings should occur.
      *
-     * @throws Exception When an unexpexted error occures.
+     * @throws Exception When an unexpected error occurs.
      */
     @Test
     void testGivenAdditionalPropertiesAreSetWhenTestingValidReportGenerationAndExportToPdfExpectNoErrors()

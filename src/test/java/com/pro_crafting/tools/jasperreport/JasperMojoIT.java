@@ -12,9 +12,6 @@ import java.io.File;
 class JasperMojoIT {
     /**
      * Test that configuration set within a pom are correctly mapped to @{@link JasperMojoConfiguration}
-     *
-     * @throws Exception
-     *             When an unexpexted error occures.
      */
     @MavenGoal("${project.groupId}:${project.artifactId}:${project.version}:jasper")
     @MavenTest

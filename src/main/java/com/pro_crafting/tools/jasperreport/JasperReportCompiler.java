@@ -31,7 +31,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Future;
 
-public class JasperReportCompiler {
+class JasperReportCompiler {
     private static final Logger LOGGER = LoggerFactory.getLogger(JasperReportCompiler.class);
     
     static final String ERROR_JRE_COMPILE_ERROR =
