@@ -1,7 +1,7 @@
 [![Version](https://img.shields.io/maven-central/v/com.pro-crafting.tools/jasperreports-plugin?logo=apache-maven&style=for-the-badge)](https://search.maven.org/artifact/com.pro-crafting.tools/jasperreports-plugin)
 [![GitHub Actions Status](<https://img.shields.io/github/actions/workflow/status/pro-crafting/Jasper-report-maven-plugin/build.yml?branch=main&logo=GitHub&style=for-the-badge>)](https://github.com/pro-crafting/Jasper-report-maven-plugin/actions/workflows/build.yml)
 
-jasperreports-plugin
+jasperreports-maven-plugin
 =============
 
 This maven plugin compiles JasperReport report files to the target directory. 
@@ -14,6 +14,8 @@ The release of [JasperReports](https://github.com/TIBCOSoftware/jasperreports) v
 In this version, the xmlValidation property has been removed. If your application depends on this property for XML validation, you will need to update your configuration. Please refer to the Installation Section for further details on how to adjust your setup accordingly.
 
 Due to classpath conflicts, it is not possible to compile reports for versions below 7.0.0 and versions 7.0.0 or above using the same version of this plugin. To find the correct plugin version for your JasperReports version, please refer to the information at the bottom of this README.
+
+The artifactId of the plugin changed from `jasperreports-plugin` to `jasperreports-maven-plugin`.
 
 Migration to version 3
 ----------
@@ -39,8 +41,8 @@ You can use the plugin by adding it to the plugin section in your pom:
 	<plugins>
 		<plugin>
 			<groupId>com.pro-crafting.tools</groupId>
-			<artifactId>jasperreports-plugin</artifactId>
-			<version>3.6.0</version>
+			<artifactId>jasperreports-maven-plugin</artifactId>
+			<version>4.0.0</version>
 			<executions>
 				<execution>
 					<phase>process-sources</phase>

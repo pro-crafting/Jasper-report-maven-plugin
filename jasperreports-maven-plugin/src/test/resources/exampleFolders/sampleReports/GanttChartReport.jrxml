@@ -1,0 +1,90 @@
+<jasperReport name="GanttChartReport" language="java" pageWidth="595" pageHeight="842" columnWidth="270" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="8815983b-dcf5-477b-9498-446cf9732405">
+	<style name="Sans_Normal" default="true" fontName="DejaVu Sans" fontSize="8.0" bold="false" italic="false" underline="false" strikeThrough="false"/>
+	<style name="Sans_Bold" fontName="DejaVu Sans" fontSize="8.0" bold="true" italic="false" underline="false" strikeThrough="false"/>
+	<style name="Sans_Italic" fontName="DejaVu Sans" fontSize="8.0" bold="false" italic="true" underline="false" strikeThrough="false"/>
+	<style name="Serif_Normal" fontName="DejaVu Serif" fontSize="10.0" bold="false" italic="false" underline="false" strikeThrough="false"/>
+	<style name="Serif_Bold" fontName="DejaVu Serif" fontSize="10.0" bold="true" italic="false" underline="false" strikeThrough="false"/>
+	<query language="sql"><![CDATA[SELECT * FROM Tasks ORDER BY Task, Subtask]]></query>
+	<field name="Series" class="java.lang.String"/>
+	<field name="Task" class="java.lang.String"/>
+	<field name="Subtask" class="java.lang.String"/>
+	<field name="StartTimestamp" class="java.sql.Timestamp"/>
+	<field name="EndTimestamp" class="java.sql.Timestamp"/>
+	<field name="Percent" class="java.lang.Double"/>
+	<group name="TaskGroup">
+		<expression><![CDATA[$F{Task}]]></expression>
+		<groupHeader>
+			<band height="20">
+				<element kind="line" uuid="69808fe8-6f8e-41dd-ad1a-0f698e4da62b" x="137" y="1" width="270" height="1"/>
+				<element kind="rectangle" uuid="67ea3168-2ab7-4668-82b2-c604e1ce0ad3" x="137" y="5" width="270" height="11" forecolor="#C0C0C0" backcolor="#C0C0C0"/>
+				<element kind="textField" uuid="51aacd78-e617-444a-b1ed-8bf8aafdef0f" x="147" y="5" width="62" height="11" style="Sans_Bold">
+					<expression><![CDATA[$F{Task}]]></expression>
+				</element>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="20">
+				<element kind="line" uuid="f7acba9b-c0d2-4ce2-ad3b-2f2ff7d06452" positionType="Float" x="210" y="0" width="197" height="1" forecolor="#808080">
+					<pen lineWidth="0.5"/>
+				</element>
+				<element kind="rectangle" uuid="9115d89f-a391-4d59-b31a-003f74971492" x="137" y="5" width="270" height="11" forecolor="#E0E0E0" backcolor="#E0E0E0"/>
+				<element kind="staticText" uuid="ea7ad511-76d5-4eb9-8406-b911144fd536" mode="Opaque" x="337" y="5" width="45" height="11" backcolor="#E0E0E0" hTextAlign="Right" style="Sans_Bold">
+					<text><![CDATA[Stages :]]></text>
+				</element>
+				<element kind="textField" uuid="3b185cb6-cb6a-4ec5-a135-b11e9f7f8bd7" mode="Opaque" x="382" y="5" width="20" height="11" backcolor="#E0E0E0" hTextAlign="Right" style="Sans_Bold">
+					<expression><![CDATA[$V{TaskGroup_COUNT}]]></expression>
+				</element>
+			</band>
+		</groupFooter>
+	</group>
+	<title height="290">
+		<element kind="elementGroup"/>
+		<element kind="staticText" uuid="e6a91c95-ff9b-48ee-9617-2ee61f7b978e" x="0" y="0" width="555" height="35" fontSize="22.0" hTextAlign="Center" style="Serif_Bold">
+			<text><![CDATA[Gantt Chart Report]]></text>
+			<box style="Serif_Bold">
+				<topPen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="chart" chartType="gantt" uuid="05abfbf3-e5d2-48f7-bc9d-b70999585cf9" positionType="Float" x="0" y="75" width="555" height="175" showLegend="true" evaluationTime="Report">
+			<dataset kind="gantt">
+				<series>
+					<seriesExpression><![CDATA[$F{Series}]]></seriesExpression>
+					<taskExpression><![CDATA[$F{Task}]]></taskExpression>
+					<subtaskExpression><![CDATA[$F{Subtask}]]></subtaskExpression>
+					<startDateExpression><![CDATA[$F{StartTimestamp}]]></startDateExpression>
+					<endDateExpression><![CDATA[$F{EndTimestamp}]]></endDateExpression>
+					<percentExpression><![CDATA[$F{Percent}]]></percentExpression>
+				</series>
+			</dataset>
+			<plot showLabels="true">
+				<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+			</plot>
+		</element>
+		<element kind="rectangle" uuid="8eaedd8d-47bd-4af3-b8cd-10795a4cf474" x="137" y="277" width="270" height="11" forecolor="#000000" backcolor="#000000"/>
+		<element kind="staticText" uuid="54ae7ae3-2d8a-405b-814c-b73c19ed2bb5" mode="Opaque" x="210" y="277" width="72" height="11" forecolor="#FFFFFF" backcolor="#000000" style="Sans_Bold">
+			<text><![CDATA[Subtask]]></text>
+		</element>
+		<element kind="staticText" uuid="7c0ada03-a138-4a29-acbf-6a91a745b19a" mode="Opaque" x="282" y="277" width="62" height="11" forecolor="#FFFFFF" backcolor="#000000" style="Sans_Bold">
+			<text><![CDATA[Start Date]]></text>
+		</element>
+		<element kind="staticText" uuid="b87afc92-afef-4fe8-aeca-cb7233bafcb9" mode="Opaque" x="345" y="277" width="62" height="11" forecolor="#FFFFFF" backcolor="#000000" style="Sans_Bold">
+			<text><![CDATA[End Date]]></text>
+		</element>
+	</title>
+	<detail>
+		<band height="13">
+			<element kind="line" uuid="09751004-fc17-4ce8-a8d4-f0ecabf8ae01" positionType="Float" x="210" y="0" width="197" height="1" forecolor="#808080">
+				<pen lineWidth="0.5"/>
+			</element>
+			<element kind="textField" uuid="fbd215b2-e181-48ba-a0e9-fed9edfc208e" positionType="Float" x="210" y="1" width="72" height="11" textAdjust="StretchHeight" vTextAlign="Middle">
+				<expression><![CDATA[$F{Subtask}]]></expression>
+			</element>
+			<element kind="textField" uuid="fbba66ce-7bc7-4788-bfb3-85547918ec08" x="282" y="1" width="62" height="11" pattern="dd/MM/yyyy" vTextAlign="Middle">
+				<expression><![CDATA[$F{StartTimestamp}]]></expression>
+			</element>
+			<element kind="textField" uuid="536ba46e-2416-4df3-953e-fbd85c84327a" x="345" y="1" width="62" height="11" pattern="dd/MM/yyyy" vTextAlign="Middle">
+				<expression><![CDATA[$F{EndTimestamp}]]></expression>
+			</element>
+		</band>
+	</detail>
+</jasperReport>

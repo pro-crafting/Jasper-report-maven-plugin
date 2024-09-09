@@ -1,0 +1,226 @@
+<jasperReport name="XYBarChartReport" language="java" columnCount="2" pageWidth="595" pageHeight="842" columnWidth="270" columnSpacing="15" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="c44907b7-042c-4e06-a6df-d9a4f6e5eee6">
+	<style name="Sans_Normal" default="true" fontName="DejaVu Sans" fontSize="8.0" bold="false" italic="false" underline="false" strikeThrough="false"/>
+	<style name="Sans_Bold" fontName="DejaVu Sans" fontSize="8.0" bold="true" italic="false" underline="false" strikeThrough="false"/>
+	<style name="Sans_Italic" fontName="DejaVu Sans" fontSize="8.0" bold="false" italic="true" underline="false" strikeThrough="false"/>
+	<style name="Serif_Normal" fontName="DejaVu Serif" fontSize="10.0" bold="false" italic="false" underline="false" strikeThrough="false"/>
+	<style name="Serif_Bold" fontName="DejaVu Serif" fontSize="10.0" bold="true" italic="false" underline="false" strikeThrough="false"/>
+	<parameter name="ReportTitle" class="java.lang.String"/>
+	<parameter name="MaxOrderID" class="java.lang.Integer"/>
+	<query language="sql"><![CDATA[SELECT * FROM Orders WHERE OrderID <= $P{MaxOrderID} ORDER BY ShipCountry, OrderID]]></query>
+	<field name="ShippedDate" class="java.sql.Timestamp"/>
+	<field name="ShipCountry" class="java.lang.String"/>
+	<field name="RequiredDate" class="java.sql.Timestamp"/>
+	<field name="CustomerID" class="java.lang.String"/>
+	<field name="OrderID" class="java.lang.Integer"/>
+	<field name="ShipName" class="java.lang.String"/>
+	<field name="ShipVia" class="java.lang.Integer"/>
+	<field name="ShipPostalCode" class="java.lang.String"/>
+	<field name="OrderDate" class="java.sql.Timestamp"/>
+	<field name="ShipCity" class="java.lang.String"/>
+	<field name="ShipAddress" class="java.lang.String"/>
+	<field name="EmployeeID" class="java.lang.Integer"/>
+	<field name="ShipRegion" class="java.lang.String"/>
+	<field name="Freight" class="java.lang.Double"/>
+	<variable name="FirstLetter" resetType="None" class="java.lang.String">
+		<expression><![CDATA[$F{ShipCountry}.substring(0, 1).toUpperCase()]]></expression>
+	</variable>
+	<variable name="OrderIDBucket" resetType="None" class="java.lang.Integer">
+		<expression><![CDATA[Integer.valueOf(1 * ($F{OrderID}.intValue() / 100))]]></expression>
+	</variable>
+	<variable name="FreightSumFirstLetterGroup" resetType="Group" calculation="Sum" resetGroup="FirstLetterGroup" class="java.lang.Double">
+		<expression><![CDATA[$F{Freight}]]></expression>
+	</variable>
+	<variable name="FreightSumCountryGroup" resetType="Group" calculation="Sum" resetGroup="CountryGroup" class="java.lang.Double">
+		<expression><![CDATA[$F{Freight}]]></expression>
+	</variable>
+	<variable name="FreightSumOrderIDBucketGroup" resetType="Group" calculation="Sum" resetGroup="OrderIDBucketGroup" class="java.lang.Double">
+		<expression><![CDATA[$F{Freight}]]></expression>
+	</variable>
+	<variable name="FreightSumColumn" resetType="Column" calculation="Sum" class="java.lang.Double">
+		<expression><![CDATA[$F{Freight}]]></expression>
+	</variable>
+	<variable name="FreightSumPage" resetType="Page" calculation="Sum" class="java.lang.Double">
+		<expression><![CDATA[$F{Freight}]]></expression>
+	</variable>
+	<variable name="FreightSumReport" calculation="Sum" class="java.lang.Double">
+		<expression><![CDATA[$F{Freight}]]></expression>
+	</variable>
+	<variable name="DateHighestCountryGroup" resetType="Group" calculation="Highest" resetGroup="CountryGroup" class="java.sql.Timestamp">
+		<expression><![CDATA[$F{OrderDate}]]></expression>
+	</variable>
+	<variable name="RegionCountCountryGroup" resetType="Group" calculation="Count" resetGroup="CountryGroup" class="java.lang.Integer">
+		<expression><![CDATA[$F{ShipRegion}]]></expression>
+	</variable>
+	<group name="FirstLetterGroup" minHeightToStartNewPage="200" startNewColumn="true">
+		<expression><![CDATA[$V{FirstLetter}]]></expression>
+		<groupHeader>
+			<band height="25">
+				<element kind="rectangle" uuid="cae9d3db-1f75-443c-8364-5c371dd52c6c" x="0" y="14" width="270" height="11" forecolor="#FFDDDD" backcolor="#FFDDDD"/>
+				<element kind="staticText" uuid="7e5f3467-139a-429b-82a6-fe9fd73a4be8" mode="Opaque" x="0" y="14" width="130" height="11" forecolor="#FF0000" backcolor="#FFDDDD" underline="true" style="Sans_Italic">
+					<text><![CDATA[Countries Starting With Letter :]]></text>
+				</element>
+				<element kind="textField" uuid="e75bb940-57f9-47d2-8a0d-c70695be72f9" mode="Opaque" x="130" y="14" width="140" height="11" forecolor="#FF0000" backcolor="#FFDDDD" style="Sans_Bold">
+					<expression><![CDATA[$V{FirstLetter}]]></expression>
+				</element>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="25">
+				<element kind="line" uuid="f96c674a-cb1f-460b-a38e-a4e257e6e670" x="0" y="0" width="270" height="1" forecolor="#FF0000"/>
+				<element kind="staticText" uuid="8856a3cb-2a38-4fb7-af90-ff8d04819ac6" x="0" y="1" width="45" height="11" forecolor="#FF0000" hTextAlign="Right" style="Sans_Bold">
+					<text><![CDATA[Count :]]></text>
+				</element>
+				<element kind="textField" uuid="8f8a1e87-f32d-4f5a-a278-3004bbc7351a" x="45" y="1" width="25" height="11" forecolor="#FF0000" hTextAlign="Right" style="Sans_Bold">
+					<expression><![CDATA[$V{FirstLetterGroup_COUNT}]]></expression>
+				</element>
+				<element kind="staticText" uuid="4870465f-b9de-4543-be7d-d80e73c60470" x="70" y="1" width="140" height="11" forecolor="#FF0000" hTextAlign="Right" style="Sans_Bold">
+					<text><![CDATA[Total :]]></text>
+				</element>
+				<element kind="textField" uuid="6cc9d940-477e-44f6-905f-1fb6b12448ab" x="210" y="1" width="60" height="11" forecolor="#FF0000" pattern="0.00" hTextAlign="Right" style="Sans_Bold">
+					<expression><![CDATA[$V{FreightSumFirstLetterGroup}]]></expression>
+				</element>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="CountryGroup">
+		<expression><![CDATA[$F{ShipCountry}]]></expression>
+		<groupHeader>
+			<band height="225">
+				<element kind="line" uuid="661884cb-f020-417e-82ab-5dd32749e10b" x="0" y="14" width="270" height="1"/>
+				<element kind="textField" uuid="edd7b36c-79d4-4b8b-a8eb-d10b34a82f2b" x="10" y="2" width="150" height="11" style="Sans_Bold">
+					<expression><![CDATA[$F{ShipCountry}]]></expression>
+				</element>
+				<element kind="textField" uuid="5f3bef31-ccf7-49e5-84fc-84f2658b4beb" x="170" y="2" width="100" height="11" evaluationTime="Group" pattern="EEE, MMM d, yyyy" evaluationGroup="CountryGroup" hTextAlign="Right" style="Sans_Bold">
+					<expression><![CDATA[$V{DateHighestCountryGroup}]]></expression>
+				</element>
+				<element kind="chart" chartType="xyBar" uuid="a9636d7d-93d6-40f9-abd7-a69366db0c47" positionType="Float" x="0" y="25" width="270" height="175" evaluationTime="Group" evaluationGroup="CountryGroup">
+					<dataset kind="xy" incrementType="Group" resetGroup="CountryGroup" incrementGroup="OrderIDBucketGroup" resetType="Group">
+						<series>
+							<seriesExpression><![CDATA["Half Freight"]]></seriesExpression>
+							<xvalueExpression><![CDATA[$V{OrderIDBucket}]]></xvalueExpression>
+							<yvalueExpression><![CDATA[new Double($V{FreightSumOrderIDBucketGroup}.doubleValue() / 2d)]]></yvalueExpression>
+						</series>
+						<series>
+							<seriesExpression><![CDATA["Normal Freight"]]></seriesExpression>
+							<xvalueExpression><![CDATA[$V{OrderIDBucket}]]></xvalueExpression>
+							<yvalueExpression><![CDATA[$V{FreightSumOrderIDBucketGroup}]]></yvalueExpression>
+						</series>
+						<series>
+							<seriesExpression><![CDATA["Double Freight"]]></seriesExpression>
+							<xvalueExpression><![CDATA[$V{OrderIDBucket}]]></xvalueExpression>
+							<yvalueExpression><![CDATA[new Double($V{FreightSumOrderIDBucketGroup}.doubleValue() * 2d)]]></yvalueExpression>
+						</series>
+					</dataset>
+					<plot showTickMarks="true" showTickLabels="true">
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="15">
+				<element kind="rectangle" uuid="1dea7ce2-4d4d-4e2d-b3df-644537068fa6" x="0" y="0" width="270" height="11" forecolor="#C0C0C0" backcolor="#C0C0C0"/>
+				<element kind="staticText" uuid="85133d7f-d1e3-49c9-9b2e-0bbabead516c" mode="Opaque" x="0" y="0" width="45" height="11" backcolor="#C0C0C0" hTextAlign="Right" style="Sans_Bold">
+					<text><![CDATA[Count :]]></text>
+				</element>
+				<element kind="textField" uuid="13a500c4-a8e8-4948-a58c-d640dbfc1bcb" mode="Opaque" x="45" y="0" width="25" height="11" backcolor="#C0C0C0" hTextAlign="Right" style="Sans_Bold">
+					<expression><![CDATA[$V{CountryGroup_COUNT}]]></expression>
+				</element>
+				<element kind="staticText" uuid="5f57a0aa-870a-452e-8cbc-1a2324dfdabe" mode="Opaque" x="70" y="0" width="140" height="11" backcolor="#C0C0C0" hTextAlign="Right" style="Sans_Bold">
+					<text><![CDATA[Total :]]></text>
+				</element>
+				<element kind="textField" uuid="9bbd9a6c-41f5-41b6-bb42-44e3b4aa7440" mode="Opaque" x="210" y="0" width="60" height="11" backcolor="#C0C0C0" pattern="0.00" hTextAlign="Right" style="Sans_Bold">
+					<expression><![CDATA[$V{FreightSumCountryGroup}]]></expression>
+				</element>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="OrderIDBucketGroup">
+		<expression><![CDATA[$V{OrderIDBucket}]]></expression>
+	</group>
+	<title height="50">
+		<element kind="elementGroup"/>
+		<element kind="staticText" uuid="ddef9729-69c9-4afc-ace8-8f871e1307fd" x="0" y="0" width="555" height="35" fontSize="22.0" hTextAlign="Center" style="Serif_Bold">
+			<text><![CDATA[XY Bar Chart with XY Dataset Report]]></text>
+			<box style="Serif_Bold">
+				<topPen lineWidth="0.5"/>
+			</box>
+		</element>
+	</title>
+	<columnHeader height="11">
+		<element kind="rectangle" uuid="035fa60a-dfff-408c-95c5-fe3543f3238d" x="0" y="0" width="270" height="11" backcolor="#333333"/>
+		<element kind="staticText" uuid="a43c1f8d-fa21-49c8-8d39-d6bb311880e3" mode="Opaque" x="0" y="0" width="40" height="11" forecolor="#FFFFFF" backcolor="#333333" hTextAlign="Center" style="Sans_Bold">
+			<text><![CDATA[Order]]></text>
+		</element>
+		<element kind="staticText" uuid="659dd052-e31a-42bb-a657-4e16bbfaae8f" mode="Opaque" x="40" y="0" width="145" height="11" forecolor="#FFFFFF" backcolor="#333333" hTextAlign="Center" style="Sans_Bold">
+			<text><![CDATA[Name, City]]></text>
+		</element>
+		<element kind="staticText" uuid="1a0de85d-a3dd-481f-86c6-aebe027b904d" mode="Opaque" x="185" y="0" width="50" height="11" forecolor="#FFFFFF" backcolor="#333333" style="Sans_Bold">
+			<text><![CDATA[Date]]></text>
+		</element>
+		<element kind="staticText" uuid="d37ba8d4-01c8-492a-9efe-5a81d209ca56" mode="Opaque" x="235" y="0" width="35" height="11" forecolor="#FFFFFF" backcolor="#333333" hTextAlign="Right" style="Sans_Bold">
+			<text><![CDATA[Freight]]></text>
+		</element>
+	</columnHeader>
+	<detail>
+		<band height="13">
+			<element kind="textField" uuid="c2a0c34f-4860-4609-89d3-0f681e776eb7" x="1" y="0" width="35" height="11" hTextAlign="Right">
+				<expression><![CDATA[$F{OrderID}]]></expression>
+			</element>
+			<element kind="textField" uuid="9b4107b2-834e-4d99-8933-946a4b7ca036" positionType="Float" x="40" y="0" width="110" height="11" textAdjust="StretchHeight">
+				<expression><![CDATA[$F{ShipName} + ", " + $F{ShipCity}]]></expression>
+			</element>
+			<element kind="textField" uuid="1873ed22-412d-4070-a037-68153ee2a1bc" x="155" y="0" width="25" height="11" blankWhenNull="true">
+				<expression><![CDATA[$F{ShipRegion}]]></expression>
+			</element>
+			<element kind="textField" uuid="660067e5-3ece-4209-860a-9de5128c5265" x="185" y="0" width="50" height="11" pattern="dd/MM/yyyy">
+				<expression><![CDATA[$F{OrderDate}]]></expression>
+			</element>
+			<element kind="textField" uuid="ddd07b48-f905-447e-a4af-2d3ec38358d9" x="235" y="0" width="35" height="11" pattern="0.00" hTextAlign="Right">
+				<expression><![CDATA[$F{Freight}]]></expression>
+			</element>
+			<element kind="line" uuid="465bc349-6d0d-4b21-8b75-3c11798ceed5" positionType="Float" x="0" y="12" width="270" height="1" forecolor="#808080">
+				<pen lineWidth="0.5"/>
+			</element>
+		</band>
+	</detail>
+	<columnFooter height="11">
+		<element kind="rectangle" uuid="2a591b02-f630-442c-bd9b-2eb2767cd026" x="0" y="0" width="270" height="11" backcolor="#333333"/>
+		<element kind="staticText" uuid="1b88e653-bfad-4d81-9bc2-8f1452cf36f9" mode="Opaque" x="0" y="0" width="45" height="11" forecolor="#FFFFFF" backcolor="#333333" hTextAlign="Right" style="Sans_Bold">
+			<text><![CDATA[Count :]]></text>
+		</element>
+		<element kind="textField" uuid="a6a67fec-1135-4dc6-acd5-fbe576254cfb" mode="Opaque" x="45" y="0" width="25" height="11" forecolor="#FFFFFF" backcolor="#333333" hTextAlign="Right" style="Sans_Bold">
+			<expression><![CDATA[$V{COLUMN_COUNT}]]></expression>
+		</element>
+		<element kind="staticText" uuid="b8653899-3e14-4bcf-8220-ce2c66a8b0de" mode="Opaque" x="70" y="0" width="140" height="11" forecolor="#FFFFFF" backcolor="#333333" hTextAlign="Right" style="Sans_Bold">
+			<text><![CDATA[Total :]]></text>
+		</element>
+		<element kind="textField" uuid="95831895-f111-45ae-b779-b835dd5c9b78" mode="Opaque" x="210" y="0" width="60" height="11" forecolor="#FFFFFF" backcolor="#333333" pattern="0.00" hTextAlign="Right" style="Sans_Bold">
+			<expression><![CDATA[$V{FreightSumColumn}]]></expression>
+		</element>
+	</columnFooter>
+	<pageFooter height="30">
+		<element kind="rectangle" uuid="83c7b473-9077-4e57-90de-60c57174b7fb" mode="Transparent" x="0" y="5" width="555" height="25"/>
+		<element kind="staticText" uuid="c62d12c1-8ad6-4e66-8475-fd09f86f056c" x="5" y="10" width="50" height="20" fontSize="14.0" hTextAlign="Right">
+			<text><![CDATA[Count :]]></text>
+		</element>
+		<element kind="textField" uuid="e582d821-bbd7-4912-bd80-17fcdb481987" x="55" y="10" width="45" height="20" fontSize="14.0" hTextAlign="Right">
+			<expression><![CDATA[$V{PAGE_COUNT}]]></expression>
+		</element>
+		<element kind="staticText" uuid="7a06c7fc-17d2-47a5-9a3f-c613785af372" x="430" y="10" width="50" height="20" fontSize="14.0" hTextAlign="Right">
+			<text><![CDATA[Total :]]></text>
+		</element>
+		<element kind="textField" uuid="fa695b1c-48d5-44c0-8e56-b11baece7711" x="480" y="10" width="70" height="20" fontSize="14.0" pattern="0.00" hTextAlign="Right">
+			<expression><![CDATA[$V{FreightSumPage}]]></expression>
+		</element>
+		<element kind="textField" uuid="c16785d7-0720-4ed5-8650-a6f8a4720833" x="200" y="10" width="75" height="20" fontSize="14.0" hTextAlign="Right">
+			<expression><![CDATA[$V{PAGE_NUMBER}]]></expression>
+		</element>
+		<element kind="staticText" uuid="a47e303c-96a3-4101-8fc0-fdd0b387b7d6" x="275" y="10" width="5" height="20" fontSize="14.0" hTextAlign="Center">
+			<text><![CDATA[/]]></text>
+		</element>
+		<element kind="textField" uuid="fe74cc09-d1a0-4385-b6e1-b4db8248d226" x="280" y="10" width="75" height="20" fontSize="14.0" evaluationTime="Report">
+			<expression><![CDATA[$V{PAGE_NUMBER}]]></expression>
+		</element>
+	</pageFooter>
+</jasperReport>
