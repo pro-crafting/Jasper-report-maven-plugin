@@ -1,0 +1,65 @@
+<jasperReport name="JsonCustomersReport" language="java" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" uuid="f82b7263-a1bf-4331-a83f-d4a9987a3d6b">
+	<property name="net.sf.jasperreports.json.source" value="data/northwind.json"/>
+	<style name="Sans_Normal" default="true" fontName="DejaVu Sans" fontSize="12.0" bold="false" italic="false" underline="false" strikeThrough="false"/>
+	<style name="Sans_Bold" fontName="DejaVu Sans" fontSize="12.0" bold="true" italic="false" underline="false" strikeThrough="false"/>
+	<style name="Sans_Italic" fontName="DejaVu Sans" fontSize="12.0" bold="false" italic="true" underline="false" strikeThrough="false"/>
+	<query language="json"><![CDATA[Northwind.Customers]]></query>
+	<field name="CustomerID" class="java.lang.String">
+		<description><![CDATA[CustomerID]]></description>
+	</field>
+	<field name="CompanyName" class="java.lang.String">
+		<description><![CDATA[CompanyName]]></description>
+	</field>
+	<title height="50">
+		<element kind="line" uuid="ebf6f09b-c52a-4c7d-b869-8a3b26669d04" x="0" y="0" width="515" height="1"/>
+		<element kind="staticText" uuid="3076f6b9-3787-4028-9f91-2e126349fac8" x="0" y="10" width="515" height="30" fontSize="22.0" hTextAlign="Center" style="Sans_Normal">
+			<text><![CDATA[Customer Orders Report]]></text>
+		</element>
+	</title>
+	<pageHeader height="21">
+		<element kind="staticText" uuid="707d1934-b14d-42a3-975c-44742d1ee914" mode="Opaque" x="0" y="5" width="515" height="15" forecolor="#FFFFFF" backcolor="#333333" style="Sans_Bold">
+			<text><![CDATA[Customer Order List]]></text>
+		</element>
+	</pageHeader>
+	<detail>
+		<band height="50">
+			<element kind="textField" uuid="85a73f15-1c10-4b47-b5f0-db73b5ce6731" x="5" y="5" width="100" height="15" printWhenDetailOverflows="true" style="Sans_Bold">
+				<expression><![CDATA[$F{CustomerID}]]></expression>
+			</element>
+			<element kind="staticText" uuid="cda21392-4073-4187-ad01-947f892a6d03" x="404" y="5" width="100" height="15" printWhenDetailOverflows="true" printRepeatedValues="false" style="Sans_Bold">
+				<text><![CDATA[(continued)]]></text>
+			</element>
+			<element kind="line" uuid="f2199e7d-b3e5-482d-a4bb-9febcbc2ef12" x="0" y="20" width="515" height="1" printWhenDetailOverflows="true"/>
+			<element kind="subreport" uuid="5adf9549-ed35-4e16-bca3-578a9d52e8bb" x="5" y="25" width="507" height="20" backcolor="#FFCC99" removeLineWhenBlank="true" printRepeatedValues="false">
+				<expression><![CDATA["JsonOrdersReport.jasper"]]></expression>
+				<parameter name="net.sf.jasperreports.json.date.pattern">
+					<expression><![CDATA[$P{net.sf.jasperreports.json.date.pattern}]]></expression>
+				</parameter>
+				<parameter name="net.sf.jasperreports.json.number.pattern">
+					<expression><![CDATA[$P{net.sf.jasperreports.json.number.pattern}]]></expression>
+				</parameter>
+				<parameter name="JSON_LOCALE">
+					<expression><![CDATA[$P{JSON_LOCALE}]]></expression>
+				</parameter>
+				<parameter name="CustomerID">
+					<expression><![CDATA[$F{CustomerID}]]></expression>
+				</parameter>
+				<parameter name="net.sf.jasperreports.json.source">
+					<expression><![CDATA["data/northwind.json"]]></expression>
+				</parameter>
+			</element>
+			<element kind="textField" uuid="fa437ff0-07d0-4146-a756-00a7e4538063" x="109" y="5" width="291" height="15" printWhenDetailOverflows="true" style="Sans_Bold">
+				<expression><![CDATA[$F{CompanyName}]]></expression>
+			</element>
+		</band>
+	</detail>
+	<pageFooter height="40">
+		<element kind="line" uuid="5312cfb2-58e3-4931-9019-0a2f0f9f68ed" x="0" y="10" width="515" height="1"/>
+		<element kind="textField" uuid="ef1db76b-f4bb-4264-8acb-ee73c91d7559" x="200" y="20" width="80" height="15" hTextAlign="Right">
+			<expression><![CDATA["Page " + String.valueOf($V{PAGE_NUMBER}) + " of"]]></expression>
+		</element>
+		<element kind="textField" uuid="a9139708-c6ba-47ce-a600-2c76c0fac009" x="280" y="20" width="75" height="15" evaluationTime="Report">
+			<expression><![CDATA[" " + String.valueOf($V{PAGE_NUMBER})]]></expression>
+		</element>
+	</pageFooter>
+</jasperReport>

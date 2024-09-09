@@ -1,0 +1,643 @@
+<jasperReport name="AllChartsReport" language="java" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" resourceBundle="AllCharts" whenResourceMissingType="Key" uuid="6e6b3f67-e324-4fe5-ad50-ac2ecc9915d1">
+	<property name="net.sf.jasperreports.export.xls.ignore.graphics" value="false"/>
+	<import>net.sf.jasperreports.engine.data.JRCsvDataSource</import>
+	<dataset name="categoryDataset" uuid="1a0918ad-69e5-469f-8f29-7dde13ee5d04">
+		<field name="full_name" class="java.lang.String">
+			<description><![CDATA[]]></description>
+		</field>
+		<field name="amount" class="java.lang.Integer">
+			<description><![CDATA[]]></description>
+		</field>
+		<field name="sales_state" class="java.lang.String">
+			<description><![CDATA[]]></description>
+		</field>
+		<variable name="personAmount" resetType="Group" calculation="Sum" resetGroup="salesState" class="java.lang.Integer">
+			<expression><![CDATA[$F{amount}]]></expression>
+		</variable>
+		<group name="person">
+			<expression><![CDATA[$F{full_name}]]></expression>
+		</group>
+		<group name="salesState">
+			<expression><![CDATA[$F{sales_state}]]></expression>
+		</group>
+	</dataset>
+	<dataset name="pieDataset" uuid="0812b5fc-6bec-4b98-8a62-0d06fc22adb7">
+		<field name="amount" class="java.lang.Integer">
+			<description><![CDATA[]]></description>
+		</field>
+		<field name="sales_state" class="java.lang.String">
+			<description><![CDATA[]]></description>
+		</field>
+		<variable name="personAmount" resetType="Group" calculation="Sum" resetGroup="salesState" class="java.lang.Integer">
+			<expression><![CDATA[$F{amount}]]></expression>
+		</variable>
+		<group name="salesState">
+			<expression><![CDATA[$F{sales_state}]]></expression>
+		</group>
+	</dataset>
+	<dataset name="xyDataset" uuid="1f6e2d37-82b5-4fa6-87fb-5602c5eea9b9">
+		<field name="amount" class="java.lang.Integer">
+			<description><![CDATA[]]></description>
+		</field>
+		<field name="probability" class="java.lang.Integer">
+			<description><![CDATA[]]></description>
+		</field>
+		<field name="sales_state" class="java.lang.String">
+			<description><![CDATA[]]></description>
+		</field>
+		<group name="salesState">
+			<expression><![CDATA[$F{sales_state}]]></expression>
+		</group>
+		<group name="probability">
+			<expression><![CDATA[$F{probability}]]></expression>
+		</group>
+		<group name="amount">
+			<expression><![CDATA[$F{amount}]]></expression>
+		</group>
+	</dataset>
+	<dataset name="timeSeriesDataset" uuid="8594838a-9bde-4e51-b45e-6353d0e17ef9">
+		<field name="amount" class="java.lang.Integer">
+			<description><![CDATA[]]></description>
+		</field>
+		<field name="date_closed" class="java.util.Date">
+			<description><![CDATA[]]></description>
+		</field>
+		<field name="sales_stage" class="java.lang.String">
+			<description><![CDATA[]]></description>
+		</field>
+		<variable name="monthAmount" resetType="Group" calculation="Sum" resetGroup="month" class="java.lang.Integer">
+			<expression><![CDATA[$F{amount}]]></expression>
+		</variable>
+		<group name="stage">
+			<expression><![CDATA[$F{sales_stage}]]></expression>
+		</group>
+		<group name="month">
+			<expression><![CDATA[Integer.valueOf($F{date_closed}.getMonth())]]></expression>
+		</group>
+	</dataset>
+	<dataset name="timePeriodDataset" uuid="d873c36d-dc6e-4f19-a5aa-d14895a082fc">
+		<field name="amount" class="java.lang.Integer">
+			<description><![CDATA[]]></description>
+		</field>
+		<field name="start_year" class="java.lang.Integer">
+			<description><![CDATA[]]></description>
+		</field>
+		<field name="start_month" class="java.lang.Integer">
+			<description><![CDATA[]]></description>
+		</field>
+		<field name="close_year" class="java.lang.Integer">
+			<description><![CDATA[]]></description>
+		</field>
+		<field name="close_month" class="java.lang.Integer">
+			<description><![CDATA[]]></description>
+		</field>
+		<field name="sales_state" class="java.lang.String">
+			<description><![CDATA[]]></description>
+		</field>
+		<variable name="startDate" class="java.util.Date">
+			<expression><![CDATA[new Date($F{start_year}.intValue() - 1900, $F{start_month}.intValue(), 1)]]></expression>
+		</variable>
+		<variable name="closeDate" class="java.util.Date">
+			<expression><![CDATA[new Date($F{close_year}.intValue() - 1900, $F{close_month}.intValue(), 1)]]></expression>
+		</variable>
+	</dataset>
+	<dataset name="meterDataset" uuid="49f8f060-5801-40d6-a2e2-f2600dfeecc1"/>
+	<parameter name="categoryDatasource1" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="categoryDatasource2" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="categoryDatasource3" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="categoryDatasource4" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="categoryDatasource5" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="categoryDatasource6" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="categoryDatasource7" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="pieDatasource1" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="pieDatasource2" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="timePeriodDatasource1" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="timeSeriesDatasource1" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="timeSeriesDatasource2" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="timeSeriesDatasource3" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="xyDatasource1" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="xyDatasource2" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="xyDatasource3" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="xyDatasource4" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<parameter name="xyDatasource5" class="net.sf.jasperreports.engine.data.JRCsvDataSource"/>
+	<group name="Bar">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="bar" uuid="c323c629-d584-4172-9150-f8aa556b5f0e" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Bar Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Bars"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Bar Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="category" incrementType="Group" incrementGroup="salesState">
+						<datasetRun uuid="512315d3-2a69-461a-8190-5e7776d1c13b" subDataset="categoryDataset">
+							<dataSourceExpression><![CDATA[$P{categoryDatasource1}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{full_name}]]></categoryExpression>
+							<valueExpression><![CDATA[$V{personAmount}]]></valueExpression>
+						</series>
+					</dataset>
+					<plot>
+						<categoryAxisLabelExpression><![CDATA["Name"]]></categoryAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="StackedBar">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="stackedBar" uuid="38cf77cf-31ac-42d2-91c1-6241fd55ddcc" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Stacked Bar Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Stacked Bars"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Stacked Bar Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="category" incrementType="Group" incrementGroup="salesState">
+						<datasetRun uuid="90f45364-fbe7-49c3-9a21-af528856a144" subDataset="categoryDataset">
+							<dataSourceExpression><![CDATA[$P{categoryDatasource2}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{full_name}]]></categoryExpression>
+							<valueExpression><![CDATA[$V{personAmount}]]></valueExpression>
+						</series>
+					</dataset>
+					<plot>
+						<categoryAxisLabelExpression><![CDATA["Name"]]></categoryAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Bar3D">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="bar3D" uuid="f6789e05-59ce-4e1b-9a32-da0927cfdfa9" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Bar 3D Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying 3D Bars"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Bar 3D Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="category" incrementType="Group" incrementGroup="salesState">
+						<datasetRun uuid="1783d77c-ccb6-4b84-8653-50c7d1015677" subDataset="categoryDataset">
+							<dataSourceExpression><![CDATA[$P{categoryDatasource3}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{full_name}]]></categoryExpression>
+							<valueExpression><![CDATA[$V{personAmount}]]></valueExpression>
+						</series>
+					</dataset>
+					<plot>
+						<categoryAxisLabelExpression><![CDATA["Name"]]></categoryAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="StackedBar3D">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="stackedBar3D" uuid="4c926ce8-8104-409d-b3d7-96c3acd11d36" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Stacked Bar 3D Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Stacked 3D Bars"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Stacked Bar 3D Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="category" incrementType="Group" incrementGroup="salesState">
+						<datasetRun uuid="937edf97-d8a2-42f4-aa26-443e41515bb3" subDataset="categoryDataset">
+							<dataSourceExpression><![CDATA[$P{categoryDatasource4}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{full_name}]]></categoryExpression>
+							<valueExpression><![CDATA[$V{personAmount}]]></valueExpression>
+						</series>
+					</dataset>
+					<plot>
+						<categoryAxisLabelExpression><![CDATA["Name"]]></categoryAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Pie">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="pie" uuid="1be5adba-7f58-486a-9e96-0642035566b8" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Pie Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Pie"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Pie Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="pie" incrementType="Group" incrementGroup="salesState">
+						<datasetRun uuid="e5ff16af-98e5-4ed3-a6a4-3d26788df975" subDataset="pieDataset">
+							<dataSourceExpression><![CDATA[$P{pieDatasource1}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<keyExpression><![CDATA[$F{sales_state}]]></keyExpression>
+							<valueExpression><![CDATA[$V{personAmount}]]></valueExpression>
+						</series>
+					</dataset>
+					<plot circular="true">
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Pie3D">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="pie3D" uuid="56610d63-a13f-47b8-8d05-6a9dfa4409a9" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Pie 3D Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying 3D Pie"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Pie 3D Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="pie" incrementType="Group" incrementGroup="salesState">
+						<datasetRun uuid="95a7c81a-7fb4-4be9-aa12-5a798013d002" subDataset="pieDataset">
+							<dataSourceExpression><![CDATA[$P{pieDatasource2}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<keyExpression><![CDATA[$F{sales_state}]]></keyExpression>
+							<valueExpression><![CDATA[$V{personAmount}]]></valueExpression>
+						</series>
+					</dataset>
+					<plot circular="true">
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Area">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="area" uuid="5c4af6a6-d610-4ac7-8e81-5d82b44a5d9c" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Area Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Areas"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Area Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="category" incrementType="Group" incrementGroup="salesState">
+						<datasetRun uuid="2179daa0-e35b-4ff3-ba12-52e2ed4551d4" subDataset="categoryDataset">
+							<dataSourceExpression><![CDATA[$P{categoryDatasource5}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{full_name}]]></categoryExpression>
+							<valueExpression><![CDATA[$V{personAmount}]]></valueExpression>
+						</series>
+					</dataset>
+					<plot>
+						<categoryAxisLabelExpression><![CDATA["Name"]]></categoryAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="StackedArea">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="stackedArea" uuid="2afba43e-0274-4aa1-9ff0-abb81dd9abed" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Stacked Area Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Stacked Areas"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Stacked Area Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="category" incrementType="Group" incrementGroup="salesState">
+						<datasetRun uuid="8817585f-5281-44c2-be63-61818f4fdb1c" subDataset="categoryDataset">
+							<dataSourceExpression><![CDATA[$P{categoryDatasource6}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{full_name}]]></categoryExpression>
+							<valueExpression><![CDATA[$V{personAmount}]]></valueExpression>
+						</series>
+					</dataset>
+					<plot>
+						<categoryAxisLabelExpression><![CDATA["Name"]]></categoryAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Line">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="line" uuid="4e426126-ca9a-4618-8166-2439d80c50c6" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Line Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Lines"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Line Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="category" incrementType="Group" incrementGroup="salesState">
+						<datasetRun uuid="d7338450-7de5-4f98-86a5-c8c9213e36a3" subDataset="categoryDataset">
+							<dataSourceExpression><![CDATA[$P{categoryDatasource7}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<categoryExpression><![CDATA[$F{full_name}]]></categoryExpression>
+							<valueExpression><![CDATA[$V{personAmount}]]></valueExpression>
+						</series>
+					</dataset>
+					<plot>
+						<categoryAxisLabelExpression><![CDATA["Name"]]></categoryAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="XyLine">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="xyLine" uuid="5c485d94-8997-48d0-8b67-20908ae5cc4b" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["XY Line Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Lines"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["XY Line Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="xy" incrementType="Group" incrementGroup="probability">
+						<datasetRun uuid="07a5455a-76af-4e3a-8d38-3cdaf0a8dd09" subDataset="xyDataset">
+							<dataSourceExpression><![CDATA[$P{xyDatasource1}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<xvalueExpression><![CDATA[$F{probability}]]></xvalueExpression>
+							<yvalueExpression><![CDATA[new Double($F{amount}.doubleValue() + $F{amount}.doubleValue() * Math.sin($V{REPORT_COUNT}.doubleValue() * Math.log(1 + $V{REPORT_COUNT}.doubleValue())))]]></yvalueExpression>
+						</series>
+					</dataset>
+					<plot showShapes="false">
+						<categoryAxisLabelExpression><![CDATA["Probability"]]></categoryAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="XyBar">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="xyBar" uuid="0066508d-93a6-45e4-abbb-d35944f2d479" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["XY Bar Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Bars"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["XY Bar Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="xy" incrementType="Group" incrementGroup="probability">
+						<datasetRun uuid="1b596778-59b6-4e62-9c27-45c61d0ff695" subDataset="xyDataset">
+							<dataSourceExpression><![CDATA[$P{xyDatasource2}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<xvalueExpression><![CDATA[$F{probability}]]></xvalueExpression>
+							<yvalueExpression><![CDATA[$F{amount}]]></yvalueExpression>
+						</series>
+					</dataset>
+					<plot>
+						<categoryAxisLabelExpression><![CDATA["Probability"]]></categoryAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="XyBarTimePeriod">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="xyBar" uuid="cb85a63a-d95b-4b23-b594-482b39ea73d7" positionType="Float" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Time Period Bar Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Time Period Bars"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Time Period Bar Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="timePeriod">
+						<datasetRun uuid="ac3da1b7-32bc-4da3-a3bc-f0c5b905d172" subDataset="timePeriodDataset">
+							<dataSourceExpression><![CDATA[$P{timePeriodDatasource1}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<startDateExpression><![CDATA[$V{startDate}]]></startDateExpression>
+							<endDateExpression><![CDATA[$V{closeDate}]]></endDateExpression>
+							<valueExpression><![CDATA[$F{amount}]]></valueExpression>
+						</series>
+					</dataset>
+					<plot showTickMarks="true" showTickLabels="true">
+						<categoryAxisLabelExpression><![CDATA["Time"]]></categoryAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="XyBarTimeSeries">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="xyBar" uuid="c806a6dc-f88d-4417-b96a-95de8648cb5a" positionType="Float" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Time Series Bar Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Time Series Bars"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Time Series Bar Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="timeSeries" incrementType="Group" incrementGroup="month" timePeriod="Month">
+						<datasetRun uuid="7bec0298-8e53-4721-8dad-f7b07cc37e46" subDataset="timeSeriesDataset">
+							<dataSourceExpression><![CDATA[$P{timeSeriesDatasource1}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_stage}]]></seriesExpression>
+							<timePeriodExpression><![CDATA[$F{date_closed}]]></timePeriodExpression>
+							<valueExpression><![CDATA[$V{monthAmount}]]></valueExpression>
+							<labelExpression><![CDATA[]]></labelExpression>
+						</series>
+					</dataset>
+					<plot showTickMarks="true" showTickLabels="true">
+						<categoryAxisLabelExpression><![CDATA["Time"]]></categoryAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+						<itemLabel color="#000000" backgroundColor="#FFFFFF"/>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="XyArea">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="xyArea" uuid="6effefe6-4078-48dd-8e8d-d94ff0a25a97" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["XY Area Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Areas"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["XY Area Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="xy" incrementType="Group" incrementGroup="probability">
+						<datasetRun uuid="1b07a612-dcca-429c-bc0c-916b26e393c1" subDataset="xyDataset">
+							<dataSourceExpression><![CDATA[$P{xyDatasource3}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<xvalueExpression><![CDATA[$F{probability}]]></xvalueExpression>
+							<yvalueExpression><![CDATA[$F{amount}]]></yvalueExpression>
+						</series>
+					</dataset>
+					<plot>
+						<categoryAxisLabelExpression><![CDATA["Probability"]]></categoryAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Scatter">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="scatter" uuid="f3e577ec-afa2-4aa8-97ac-c320287c4d84" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Scatter Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Scattered Dots"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Scatter Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="xy" incrementType="Group" incrementGroup="probability">
+						<datasetRun uuid="1cc59e9c-f068-45be-a6b9-53f7fe13132d" subDataset="xyDataset">
+							<dataSourceExpression><![CDATA[$P{xyDatasource4}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<xvalueExpression><![CDATA[$F{probability}]]></xvalueExpression>
+							<yvalueExpression><![CDATA[new Double(200000 + 200000 * Math.sin($V{REPORT_COUNT}.doubleValue() * Math.log(1 + $V{REPORT_COUNT}.doubleValue())))]]></yvalueExpression>
+						</series>
+					</dataset>
+					<plot showLines="false">
+						<xaxisLabelExpression><![CDATA["Probability"]]></xaxisLabelExpression>
+						<yaxisLabelExpression><![CDATA["Amount"]]></yaxisLabelExpression>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Bubble">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="bubble" uuid="d394046c-4ff1-4dec-ba67-741c2444d355" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Bubble Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Bubbles"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Bubble Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="xyz" incrementType="Group" incrementGroup="probability">
+						<datasetRun uuid="5d58b336-7ac8-4195-98ef-14fdfa0b8a34" subDataset="xyDataset">
+							<dataSourceExpression><![CDATA[$P{xyDatasource5}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_state}]]></seriesExpression>
+							<xvalueExpression><![CDATA[$F{probability}]]></xvalueExpression>
+							<yvalueExpression><![CDATA[new Double(200000 + 200000 * Math.sin($V{REPORT_COUNT}.doubleValue() * Math.log(1 + $V{REPORT_COUNT}.doubleValue())))]]></yvalueExpression>
+							<zvalueExpression><![CDATA[new Double(25000 + 20000 * Math.sin($F{probability}.doubleValue() * Math.log(1 + $F{amount}.doubleValue())))]]></zvalueExpression>
+						</series>
+					</dataset>
+					<plot scaleType="RangeAxis">
+						<xaxisLabelExpression><![CDATA["Probability"]]></xaxisLabelExpression>
+						<yaxisLabelExpression><![CDATA["Amount"]]></yaxisLabelExpression>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="TimeSeries">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="timeSeries" uuid="ae6ade6f-1b44-49ff-877c-9772db5bbe02" positionType="Float" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["Time Series Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying Time Series"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["Time Series Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="timeSeries" incrementType="Group" incrementGroup="month" timePeriod="Month">
+						<datasetRun uuid="1c7895f0-6fb0-4160-9897-b4035539d9be" subDataset="timeSeriesDataset">
+							<dataSourceExpression><![CDATA[$P{timeSeriesDatasource2}]]></dataSourceExpression>
+						</datasetRun>
+						<series>
+							<seriesExpression><![CDATA[$F{sales_stage}]]></seriesExpression>
+							<timePeriodExpression><![CDATA[$F{date_closed}]]></timePeriodExpression>
+							<valueExpression><![CDATA[$V{monthAmount}]]></valueExpression>
+							<labelExpression><![CDATA[]]></labelExpression>
+						</series>
+					</dataset>
+					<plot showShapes="true" showLines="true">
+						<timeAxisLabelExpression><![CDATA["Time"]]></timeAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="HighLow">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="highLow" uuid="44cec745-e595-42b9-b306-7be1ca543866" positionType="Float" x="0" y="0" width="555" height="300" evaluationTime="Report">
+					<titleExpression><![CDATA["High Low Chart"]]></titleExpression>
+					<subtitleExpression><![CDATA["Chart Displaying High Low Open Close Series"]]></subtitleExpression>
+					<hyperlinkTooltipExpression><![CDATA["High Low Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="highLow" incrementType="Group" incrementGroup="month">
+						<datasetRun uuid="af274ea3-968b-4430-b825-405c4575c74e" subDataset="timeSeriesDataset">
+							<dataSourceExpression><![CDATA[$P{timeSeriesDatasource3}]]></dataSourceExpression>
+						</datasetRun>
+						<seriesExpression><![CDATA[$F{sales_stage}]]></seriesExpression>
+						<dateExpression><![CDATA[$F{date_closed}]]></dateExpression>
+						<highExpression><![CDATA[new Double($V{monthAmount}.doubleValue() + $V{monthAmount}.doubleValue()*0.6)]]></highExpression>
+						<lowExpression><![CDATA[new Double($V{monthAmount}.doubleValue() - $V{monthAmount}.doubleValue()*0.6)]]></lowExpression>
+						<openExpression><![CDATA[new Double($V{monthAmount}.doubleValue() - $V{monthAmount}.doubleValue()*0.3)]]></openExpression>
+						<closeExpression><![CDATA[new Double($V{monthAmount}.doubleValue() + $V{monthAmount}.doubleValue()*0.4)]]></closeExpression>
+						<volumeExpression><![CDATA[new Double($V{monthAmount}.doubleValue() / 2)]]></volumeExpression>
+					</dataset>
+					<plot>
+						<timeAxisLabelExpression><![CDATA["Time"]]></timeAxisLabelExpression>
+						<valueAxisLabelExpression><![CDATA["Amount"]]></valueAxisLabelExpression>
+					</plot>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+	<group name="Meter">
+		<expression><![CDATA[null]]></expression>
+		<groupHeader>
+			<band height="400">
+				<element kind="chart" chartType="meter" uuid="af1c438b-3012-448e-a617-2f2416c3be08" positionType="Float" x="125" y="0" width="300" height="300" showLegend="false">
+					<hyperlinkTooltipExpression><![CDATA["Meter Chart"]]></hyperlinkTooltipExpression>
+					<dataset kind="value" resetType="None">
+						<datasetRun uuid="999bc07e-8918-42cf-9000-288d04605045" subDataset="meterDataset">
+							<dataSourceExpression><![CDATA[new JREmptyDataSource()]]></dataSourceExpression>
+						</datasetRun>
+						<valueExpression><![CDATA[new Double(7500.0)]]></valueExpression>
+					</dataset>
+					<plot units="Freight" tickInterval="1000.0" needleColor="#000066" tickColor="#0000FF" meterColor="#777777">
+						<dataRange>
+							<lowExpression><![CDATA[new Double(0.0)]]></lowExpression>
+							<highExpression><![CDATA[new Double(17500.0)]]></highExpression>
+						</dataRange>
+						<valueDisplay/>
+						<interval label="Small">
+							<dataRange>
+								<lowExpression><![CDATA[new Double(0.0)]]></lowExpression>
+								<highExpression><![CDATA[new Double(2000.0)]]></highExpression>
+							</dataRange>
+						</interval>
+						<interval label="Med">
+							<dataRange>
+								<lowExpression><![CDATA[new Double(2000.0)]]></lowExpression>
+								<highExpression><![CDATA[new Double(12000.0)]]></highExpression>
+							</dataRange>
+						</interval>
+						<interval label="Large">
+							<dataRange>
+								<lowExpression><![CDATA[new Double(12000.0)]]></lowExpression>
+								<highExpression><![CDATA[new Double(17500.0)]]></highExpression>
+							</dataRange>
+						</interval>
+					</plot>
+					<property name="net.sf.jasperreports.chart.dial.value.display.visible" value="false"/>
+					<propertyExpression name="net.sf.jasperreports.chart.dial.label"><![CDATA[$R{dial.label}]]></propertyExpression>
+				</element>
+			</band>
+		</groupHeader>
+	</group>
+</jasperReport>

@@ -1,0 +1,16 @@
+<jasperReport name="MarkupReport" language="java" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="0fb11fae-6dca-4ebd-9985-3b56a0babd01">
+	<style name="Sans_Normal" default="true" fontName="DejaVu Sans" fontSize="10.0" bold="false" italic="false" underline="false" strikeThrough="false"/>
+	<parameter name="RtfText" class="java.lang.String"/>
+	<parameter name="HtmlText" class="java.lang.String"/>
+	<title height="660">
+		<element kind="staticText" uuid="502e6c5a-99bc-4fdf-876b-c1257cd8906e" mode="Opaque" x="0" y="0" width="555" height="140" backcolor="#C0C0C0" markup="styled" fontSize="16.0">
+			<text><![CDATA[This is a <style isBold="true" isItalic="true" isUnderline="true">static text</style> element containing styled text. <style backcolor="yellow" isBold="true" isItalic="true">Styled text</style> elements are introduced by setting the <style forecolor="blue" isItalic="true">markup</style> attribute available for the <style isBold="true" forecolor="magenta">textElement</style> tag to <style forecolor="red" isItalic="true">styled</style> and by formatting the text content using nested <style isBold="true" forecolor="green">style</style> tags and simple HTML tags, including <a type="Reference" href="http://jasperreports.sf.net" target="Blank"><style isItalic="true" isBold="true" isUnderline="true" forecolor="yellow">hyperlinks</style></a>.]]></text>
+		</element>
+		<element kind="textField" uuid="8248e493-c75a-4d91-91b2-95fdda0ed737" positionType="Float" mode="Opaque" x="0" y="150" width="555" height="140" backcolor="#C0C0C0" markup="rtf" fontSize="16.0" textAdjust="StretchHeight">
+			<expression><![CDATA[$P{RtfText}]]></expression>
+		</element>
+		<element kind="textField" uuid="3d972a89-3f5a-4723-b6dc-f318fa5c8379" positionType="Float" mode="Opaque" x="0" y="300" width="555" height="140" backcolor="#C0C0C0" markup="html" fontSize="16.0" textAdjust="StretchHeight">
+			<expression><![CDATA[$P{HtmlText}]]></expression>
+		</element>
+	</title>
+</jasperReport>

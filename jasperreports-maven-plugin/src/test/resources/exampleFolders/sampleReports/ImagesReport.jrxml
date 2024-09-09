@@ -1,0 +1,167 @@
+<jasperReport name="ImagesReport" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="32bb72db-9230-40fe-b1de-f0bff31ac37a">
+	<style name="imageBox" mode="Opaque" backcolor="#FFFF00">
+		<box>
+			<pen lineWidth="0.5"/>
+		</box>
+	</style>
+	<title height="782">
+		<element kind="image" uuid="593e1525-da5c-4ef1-9a4b-e2a2900e39c9" x="0" y="0" width="150" height="40" scaleImage="Clip" onErrorType="Icon" lazy="true">
+			<expression><![CDATA["http://jasperreports.sourceforge.net/jasperreports.png"]]></expression>
+		</element>
+		<element kind="staticText" uuid="2cb0f480-309d-4dde-bdf8-37479e41187a" x="160" y="0" width="390" height="40">
+			<text><![CDATA[<image scaleImage="Clip" onErrorType="Icon" isLazy="true"><reportElement x="0" y="0" width="150" height="40"/><imageExpression class="java.lang.String">"http://jasperreports.sourceforge.net/jasperreports.png"</imageExpression></image>]]></text>
+		</element>
+		<element kind="image" uuid="61cb499a-a21c-465b-8c81-b1fe39c873f4" x="0" y="50" width="150" height="40">
+			<expression><![CDATA["dukesign.jpg"]]></expression>
+			<box>
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="eb078a2d-682e-490e-80dd-d4c256da8b70" x="160" y="50" width="390" height="40">
+			<text><![CDATA[<image scaleImage="RetainShape"><reportElement x="0" y="50" width="150" height="40"/><box><pen lineWidth="0.5"/></box><imageExpression>"dukesign.jpg"</imageExpression></image>]]></text>
+		</element>
+		<element kind="image" uuid="5f96aa7b-04cb-434f-b4a9-cb73c4c609c3" mode="Opaque" x="0" y="100" width="150" height="40" backcolor="#FFFF00" scaleImage="Clip">
+			<expression><![CDATA["dukesign.jpg"]]></expression>
+			<box padding="5">
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="1fe25671-02ff-4627-8a23-7aa2218d3443" x="160" y="100" width="390" height="40">
+			<text><![CDATA[<image scaleImage="Clip"><reportElement x="0" y="100" width="150" height="40" mode="Opaque" backcolor="yellow"/><box padding="5"/><pen lineWidth="0.5"/></box><imageExpression>"dukesign.jpg"</imageExpression></image>]]></text>
+		</element>
+		<element kind="image" uuid="97885317-e222-4ea8-a8aa-efa5d846e7c3" x="0" y="150" width="150" height="40" scaleImage="FillFrame">
+			<expression><![CDATA["dukesign.jpg"]]></expression>
+			<box>
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="720bdbdd-7d51-4f49-85e5-019f62b63f2e" x="160" y="150" width="390" height="40">
+			<text><![CDATA[<image scaleImage="FillFrame" isUsingCache="true"><reportElement x="0" y="150" width="150" height="40"/><box><pen lineWidth="0.5"/></box><imageExpression>"dukesign.jpg"</imageExpression></image>]]></text>
+		</element>
+		<element kind="image" uuid="93bfd21c-03cf-4daa-a76c-edf184f6585a" x="0" y="200" width="150" height="40" usingCache="false" hImageAlign="Center">
+			<expression><![CDATA["dukesign.jpg"]]></expression>
+			<box>
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="1ad242d7-8a0d-4bbb-a791-81e151cd86f2" x="160" y="200" width="390" height="40">
+			<text><![CDATA[<image scaleImage="RetainShape" hAlign="Center" isUsingCache="false"><reportElement x="0" y="200" width="150" height="40"/><box><pen lineWidth="0.5"/></box><imageExpression>"dukesign.jpg"</imageExpression></image>]]></text>
+		</element>
+		<element kind="rectangle" uuid="417079a8-4a95-429b-934f-bf464221eb81" x="0" y="250" width="150" height="40" backcolor="#FFDDDD">
+			<pen lineWidth="0.0"/>
+		</element>
+		<element kind="image" uuid="65c4a8f3-2ede-4b0b-883e-93b3c4d2fba4" x="5" y="255" width="70" height="30">
+			<expression><![CDATA["transparent.gif"]]></expression>
+		</element>
+		<element kind="staticText" uuid="7166a88a-51a7-4d0f-81c7-ee27c41552e3" x="160" y="250" width="390" height="40">
+			<text><![CDATA[<image scaleImage="RetainShape"><reportElement x="5" y="255" width="70" height="30"/><graphicElement/><imageExpression>"transparent.gif"</imageExpression></image>]]></text>
+		</element>
+		<element kind="rectangle" uuid="c05c2dd9-4c79-4dec-961c-30ff746cc909" x="0" y="300" width="150" height="40" backcolor="#FFDDDD">
+			<pen lineWidth="0.0"/>
+		</element>
+		<element kind="image" uuid="0f0ab206-3a01-4ba3-91b6-df02e817021a" x="5" y="305" width="70" height="30" backcolor="#FFDDDD" scaleImage="Clip">
+			<expression><![CDATA["transparent.gif"]]></expression>
+		</element>
+		<element kind="staticText" uuid="c1e63013-c140-48f8-87b3-b4e84b81350c" x="160" y="300" width="390" height="40">
+			<text><![CDATA[<image scaleImage="Clip"><reportElement x="5" y="305" width="70" height="30"/><graphicElement/><imageExpression>"transparent.gif"</imageExpression></image>]]></text>
+		</element>
+		<element kind="rectangle" uuid="e7e8c72e-dceb-4b0c-bf99-6c6af6c25be3" x="0" y="350" width="150" height="40" backcolor="#FFDDDD">
+			<pen lineWidth="0.0"/>
+		</element>
+		<element kind="image" uuid="36977b50-a9fc-4307-915d-c3343d92234d" mode="Opaque" x="5" y="355" width="30" height="30" backcolor="#DDFFDD">
+			<expression><![CDATA["transparent.gif"]]></expression>
+		</element>
+		<element kind="staticText" uuid="4a7e5e9c-6d95-4617-ad59-a8c5a4a82b95" x="160" y="350" width="390" height="40">
+			<text><![CDATA[<image scaleImage="RetainShape"><reportElement x="5" y="355" width="30" height="30" mode="Opaque" backcolor="#DDFFDD"/><graphicElement/><imageExpression>"transparent.gif"</imageExpression></image>]]></text>
+		</element>
+		<element kind="rectangle" uuid="2f7c182c-282d-47ec-87f5-0004930306f0" x="0" y="400" width="150" height="40" backcolor="#FFDDDD">
+			<pen lineWidth="0.0"/>
+		</element>
+		<element kind="image" uuid="3e836de5-b583-4a0c-afe6-6b09b0b9dfe8" mode="Opaque" x="5" y="405" width="120" height="30" backcolor="#DDFFDD" scaleImage="Clip" hImageAlign="Center" vImageAlign="Middle">
+			<expression><![CDATA["transparent.gif"]]></expression>
+		</element>
+		<element kind="staticText" uuid="bc824ce6-a74a-4eec-8bae-dbfd84ce2cf1" x="160" y="400" width="390" height="40">
+			<text><![CDATA[<image scaleImage="Clip" hAlign="Center" vAlign="Middle"><reportElement x="5" y="405" width="120" height="30" mode="Opaque" backcolor="#DDFFDD"/><graphicElement/><imageExpression>"transparent.gif"</imageExpression></image>]]></text>
+		</element>
+		<element kind="image" uuid="e8d56f10-5167-4cf9-bc52-471c440da301" x="50" y="455" width="50" height="30" forecolor="#FF0000" scaleImage="Clip">
+			<expression><![CDATA["transparent.gif"]]></expression>
+			<box>
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="56ce6abd-8d30-4a19-b1c2-a21f3958ea2b" x="160" y="450" width="390" height="40">
+			<text><![CDATA[<image scaleImage="Clip"><reportElement x="50" y="455" width="50" height="30" forecolor="red"/><box><pen lineWidth="0.5"/></box><imageExpression>"transparent.gif"</imageExpression></image>]]></text>
+		</element>
+		<element kind="image" uuid="38a32cef-3caa-41ab-8ba7-a01585980ed8" x="50" y="505" width="50" height="30" forecolor="#FF0000" scaleImage="Clip">
+			<expression><![CDATA["transparent.gif"]]></expression>
+			<box>
+				<pen lineWidth="1.0" lineStyle="Dashed"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="c2f086d7-7830-44fa-8e98-186319f227c3" x="160" y="500" width="390" height="40">
+			<text><![CDATA[<image scaleImage="Clip"><reportElement x="50" y="505" width="50" height="30" forecolor="red"/><box><pen lineWidth="1" lineStyle="Dashed"/></box><imageExpression>"transparent.gif"</imageExpression></image>]]></text>
+		</element>
+		<element kind="image" uuid="ea76bd15-6fcc-4d72-bb6d-2abde6af459b" x="50" y="555" width="50" height="30" forecolor="#FF0000" scaleImage="Clip">
+			<expression><![CDATA["transparent.gif"]]></expression>
+			<box>
+				<pen lineWidth="1.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="33b58f15-dfe5-4379-92ea-3dde672a3278" x="160" y="550" width="390" height="40">
+			<text><![CDATA[<image scaleImage="Clip"><reportElement x="50" y="555" width="50" height="30" forecolor="red"/><box><pen lineWidth="1"/></box><imageExpression>"transparent.gif"</imageExpression></image>]]></text>
+		</element>
+		<element kind="image" uuid="f427e166-2cc4-4c56-a6fa-da525f1524d5" x="50" y="605" width="50" height="30" forecolor="#FF0000" scaleImage="Clip">
+			<expression><![CDATA["transparent.gif"]]></expression>
+			<box>
+				<pen lineWidth="2.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="3c032490-8230-41fe-8942-a089945b37bf" x="160" y="600" width="390" height="40">
+			<text><![CDATA[<image scaleImage="Clip"><reportElement x="50" y="605" width="50" height="30" forecolor="red"/><box><pen lineWidth="2"/></box><imageExpression>"transparent.gif"</imageExpression></image>]]></text>
+		</element>
+		<element kind="image" uuid="24410b1f-8b82-4693-83d5-c486faf1ce95" x="50" y="655" width="50" height="30" forecolor="#FF0000" scaleImage="Clip" hImageAlign="Right">
+			<expression><![CDATA["transparent.gif"]]></expression>
+			<box>
+				<pen lineWidth="4.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="87110dbc-b436-4460-a311-9fbe70b02394" x="160" y="650" width="390" height="40">
+			<text><![CDATA[<image scaleImage="Clip" hAlign="Right" vAlign="Top"><reportElement x="50" y="655" width="50" height="30" forecolor="red"/><box><pen lineWidth="4"/></box><imageExpression>"transparent.gif"</imageExpression></image>]]></text>
+		</element>
+		<element kind="image" uuid="00e82868-2553-4975-8147-0239c8b93f8e" x="50" y="705" width="6" height="6" forecolor="#00FF00">
+			<expression><![CDATA["1redpixel.gif"]]></expression>
+			<box>
+				<pen lineWidth="4.0"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="85d6b07e-fdd8-495c-b850-b3ce7af02f85" x="160" y="700" width="390" height="40">
+			<text><![CDATA[<image><reportElement x="50" y="705" width="6" height="6" forecolor="green"/><box><pen lineWidth="4"/></box><imageExpression>"1redpixel.gif"</imageExpression></image>]]></text>
+		</element>
+	</title>
+	<summary height="140">
+		<element kind="frame" uuid="66ba565c-55c2-48a4-8769-41bd0bce4029" x="0" y="0" width="550" height="40">
+			<element kind="image" uuid="ead44670-8d44-4e36-8e19-90db40c9262f" x="0" y="0" width="150" height="40" scaleImage="RealHeight" style="imageBox">
+				<expression><![CDATA["dukesign.jpg"]]></expression>
+			</element>
+			<element kind="staticText" uuid="b34cfa8a-6d20-4a6c-b2ae-8840fa0507c4" x="160" y="0" width="390" height="40">
+				<text><![CDATA[<image scaleImage="RealHeight"><reportElement x="0" y="0" width="150" height="40" style="imageBox"/><imageExpression>"dukesign.jpg"</imageExpression></image>]]></text>
+			</element>
+		</element>
+		<element kind="frame" uuid="0b0473a2-28a2-4792-a637-8b80e08d65ef" positionType="Float" x="0" y="50" width="550" height="40">
+			<element kind="image" uuid="1c1fd459-8b6a-476c-a3cd-ff47de606dee" x="0" y="0" width="150" height="40" scaleImage="RealSize" style="imageBox">
+				<expression><![CDATA["dukesign.jpg"]]></expression>
+			</element>
+			<element kind="staticText" uuid="2c3f54be-7b26-4179-9d71-dd63bcb100fd" x="160" y="0" width="390" height="40">
+				<text><![CDATA[<image scaleImage="RealSize"><reportElement x="0" y="0" width="150" height="40" style="imageBox"/><imageExpression>"dukesign.jpg"</imageExpression></image>]]></text>
+			</element>
+		</element>
+		<element kind="frame" uuid="edf854a5-52ba-491b-9af0-dad2ced28d75" positionType="Float" x="0" y="100" width="550" height="40">
+			<element kind="image" uuid="29b79778-2b21-4003-a1c1-6f2605fae379" x="0" y="0" width="100" height="40" scaleImage="RealHeight" style="imageBox">
+				<expression><![CDATA["dukesign.jpg"]]></expression>
+			</element>
+			<element kind="staticText" uuid="0356e033-6f14-4165-b2a9-1f5ae31d24e5" x="160" y="0" width="390" height="40">
+				<text><![CDATA[<image scaleImage="RealHeight"><reportElement x="0" y="0" width="100" height="40" style="imageBox"/><imageExpression>"dukesign.jpg"</imageExpression></image>]]></text>
+			</element>
+		</element>
+	</summary>
+</jasperReport>

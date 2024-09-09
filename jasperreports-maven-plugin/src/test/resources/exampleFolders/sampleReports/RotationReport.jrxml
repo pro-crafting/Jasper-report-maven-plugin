@@ -1,0 +1,44 @@
+<jasperReport name="RotationReport" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="30" bottomMargin="30" uuid="c25a02e8-5a27-4231-813b-18ad35fd2d7d">
+	<title height="782">
+		<element kind="staticText" uuid="9b2c3217-73db-4cb9-8ee2-9cfe1705784a" mode="Opaque" x="0" y="0" width="90" height="350" backcolor="#C0C0C0" rotation="Left" fontSize="14.0">
+			<text><![CDATA[rotation="Left" 
+textAlignment="Left" 
+verticalAlignment="Top"]]></text>
+		</element>
+		<element kind="staticText" uuid="02ad5d90-3d77-430f-80b3-91c45ca0398b" mode="Opaque" x="100" y="0" width="90" height="350" backcolor="#C0C0C0" rotation="Left" fontSize="14.0" hTextAlign="Center" vTextAlign="Bottom">
+			<text><![CDATA[rotation="Left" 
+textAlignment="Center" 
+verticalAlignment="Bottom"]]></text>
+		</element>
+		<element kind="staticText" uuid="90d5dcba-c258-480f-b93a-79fa0b0cea4f" mode="Opaque" x="200" y="0" width="90" height="350" backcolor="#C0C0C0" rotation="Left" fontSize="14.0" hTextAlign="Right" vTextAlign="Middle">
+			<text><![CDATA[rotation="Left" 
+textAlignment="Right"
+verticalAlignment="Middle"]]></text>
+		</element>
+		<element kind="staticText" uuid="9bcb11b5-5dd7-4b6f-ba5d-0ecb20714c42" mode="Opaque" x="300" y="0" width="90" height="350" backcolor="#C0C0C0" rotation="UpsideDown" fontSize="14.0" hTextAlign="Left" vTextAlign="Middle">
+			<text><![CDATA[rotation="UpsideDown"
+textAlignment="Left"
+verticalAlignment="Middle"]]></text>
+		</element>
+		<element kind="staticText" uuid="8eb73b50-f1d2-4eca-bd86-b0c4f0ac5f37" mode="Opaque" x="155" y="410" width="90" height="350" forecolor="#FFFFFF" backcolor="#404040" rotation="UpsideDown" fontSize="14.0" hTextAlign="Right" vTextAlign="Top">
+			<text><![CDATA[rotation="UpsideDown"
+textAlignment="Right"
+verticalAlignment="Top"]]></text>
+		</element>
+		<element kind="staticText" uuid="09dc726a-b8da-4b12-a9a9-d4c8f31d97fb" mode="Opaque" x="255" y="410" width="90" height="350" forecolor="#FFFFFF" backcolor="#404040" rotation="Right" fontSize="14.0" hTextAlign="Right" vTextAlign="Middle">
+			<text><![CDATA[rotation="Right" 
+textAlignment="Right" 
+verticalAlignment="Middle"]]></text>
+		</element>
+		<element kind="staticText" uuid="5772ad1d-6b67-45e7-a3b4-3ace2043433c" mode="Opaque" x="355" y="410" width="90" height="350" forecolor="#FFFFFF" backcolor="#404040" rotation="Right" fontSize="14.0" hTextAlign="Center" vTextAlign="Bottom">
+			<text><![CDATA[rotation="Right" 
+textAlignment="Center" 
+verticalAlignment="Bottom"]]></text>
+		</element>
+		<element kind="staticText" uuid="01e9a542-6c96-425c-85bf-8b6a404c0e0d" mode="Opaque" x="455" y="410" width="90" height="350" forecolor="#FFFFFF" backcolor="#404040" rotation="Right" fontSize="14.0">
+			<text><![CDATA[rotation="Right"
+textAlignment="Left"
+verticalAlignment="Top"]]></text>
+		</element>
+	</title>
+</jasperReport>
