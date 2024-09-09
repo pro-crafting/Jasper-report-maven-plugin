@@ -6,7 +6,7 @@ import java.io.File;
 import java.util.List;
 import java.util.Map;
 
-public class JasperMojoConfiguration {
+class JasperMojoConfiguration {
     public String compiler;
 
     public File outputDirectory;
