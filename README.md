@@ -12,6 +12,7 @@ Migration to version 4
 The release of [JasperReports](https://github.com/TIBCOSoftware/jasperreports) version 7.0.0 introduced significant changes, including some breaking changes. As a result, this Maven plugin requires updates, and all reports must be manually migrated using Jasper Studio. For more details on the changes, please refer to the [release notes](https://github.com/TIBCOSoftware/jasperreports/releases/tag/7.0.0).
 
 In this version, the xmlValidation property has been removed. If your application depends on this property for XML validation, you will need to update your configuration. Please refer to the Installation Section for further details on how to adjust your setup accordingly.
+The default `JRJdtCompiler` compiler now resides in a different package. Either remove the compiler configuration if you are using the `JRJdtCompiler`, which is the automatic default, or set it to `net.sf.jasperreports.jdt.JRJdtCompiler`.
 
 Due to classpath conflicts, it is not possible to compile reports for versions below 7.0.0 and versions 7.0.0 or above using the same version of this plugin. To find the correct plugin version for your JasperReports version, please refer to the information at the bottom of this README.
 
