@@ -43,7 +43,7 @@
 		<version.maven-plugin-annotations>3.5.2</version.maven-plugin-annotations>
 		<version.maven-plugin-api>3.5.2</version.maven-plugin-api>
 		<version.itf>0.13.1</version.itf>
-		<version.slf4j>1.7.36</version.slf4j>
+		<version.slf4j>2.0.0</version.slf4j>
 
 		<!-- Plugin Versions -->
 		<version.maven-plugin-plugin>3.5.2</version.maven-plugin-plugin>
