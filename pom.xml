@@ -36,7 +36,7 @@
 
 		<!-- Dependency Versions -->
 		<!-- Make sure that the following block of dependencies match the version used in jasper reports found at https://raw.githubusercontent.com/TIBCOSoftware/jasperreports/master/pom-parent.xml -->
-        <version.jasperreports>7.0.0</version.jasperreports>
+        <version.jasperreports>7.0.1</version.jasperreports>
         <version.rhino>1.7.14</version.rhino>
 
 		<version.plexus-compiler-api>2.13.0</version.plexus-compiler-api>

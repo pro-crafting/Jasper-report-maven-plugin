@@ -1,3 +1,7 @@
+# 4.0.1
+
+- Update to Jasper 7.0.1
+
 # 4.0.0
 
 - Update to Jasper 7.0.0

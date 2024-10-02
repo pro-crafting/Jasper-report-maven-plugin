@@ -147,6 +147,7 @@ The following table shows which JasperReports version is included during compila
 
 | Plugin Version | JasperReports Version |
 |----------------|-----------------------|
+| 4.0.1          | 7.0.1                 |
 | 4.0.0          | 7.0.0                 |
 | 3.6.2          | 6.21.3                |
 | 3.6.1          | 6.21.2                |
