@@ -27,5 +27,5 @@ jobs:
       - uses: stCarolas/setup-maven@v4.5
         with:
           maven-version: '${{ matrix.maven }}'
-      - name: Maven instal
+      - name: Maven build
         run: mvn -B install
