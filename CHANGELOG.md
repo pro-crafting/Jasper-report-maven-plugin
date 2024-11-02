@@ -1,3 +1,7 @@
+# 3.6.3
+
+- Update to Jasper 6.21.4
+
 # 3.6.2
 
 - Update to Jasper 6.21.3
