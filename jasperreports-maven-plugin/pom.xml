@@ -67,11 +67,6 @@
             <version>${version.jasperreports}</version>
         </dependency>
         <dependency>
-            <groupId>net.sf.jasperreports</groupId>
-            <artifactId>jasperreports-google-maps</artifactId>
-            <version>${version.jasperreports}</version>
-        </dependency>
-        <dependency>
             <groupId>org.mozilla</groupId>
             <artifactId>rhino</artifactId>
             <version>${version.rhino}</version>
