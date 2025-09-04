@@ -1,0 +1,165 @@
+<jasperReport name="Barcode4jReport" language="java" pageWidth="595" pageHeight="842" columnWidth="515" leftMargin="40" rightMargin="40" topMargin="50" bottomMargin="50" uuid="a8d15ac3-cf25-4e3f-bb95-7b9f3b8c6e5d">
+	<parameter name="Code128" class="java.lang.String">
+		<defaultValueExpression><![CDATA["JasperReports"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="EAN13" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1234567890128"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="EAN8" class="java.lang.String">
+		<defaultValueExpression><![CDATA["12345670"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="UPCA" class="java.lang.String">
+		<defaultValueExpression><![CDATA["72527273070"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="UPCE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["01234565"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="QRCode" class="java.lang.String">
+		<defaultValueExpression><![CDATA["https://github.com/pro-crafting/Jasper-report-maven-plugin"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="DataMatrix" class="java.lang.String">
+		<defaultValueExpression><![CDATA["JasperReports with Barcode4j"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="PDF417" class="java.lang.String">
+		<defaultValueExpression><![CDATA["PDF417 is a 2D barcode that can encode large amounts of data"]]></defaultValueExpression>
+	</parameter>
+	<title height="742">
+		<element kind="line" uuid="b3c7f4a9-2e8d-4a9f-8c12-5a8e9f3b2d7e" x="0" y="0" width="515" height="1"/>
+		<element kind="staticText" uuid="d8f2a5b3-9c3e-4f8a-bc7d-6e9f8a4b3c5d" x="0" y="10" width="515" height="30" fontSize="22.0" hTextAlign="Center">
+			<text><![CDATA[Barcode4j Sample Report]]></text>
+		</element>
+		<element kind="textField" uuid="e7d3f5a2-8b4c-9f6e-a3d7-5c8b9e2f4a7b" x="0" y="50" width="515" height="20" fontSize="12.0" hTextAlign="Center">
+			<expression><![CDATA["This sample demonstrates various barcode types using Barcode4j"]]></expression>
+		</element>
+		
+		<!-- Code128 Barcode -->
+		<element kind="staticText" uuid="a1b2c3d4-e5f6-7890-abcd-ef1234567890" x="0" y="90" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[Code128:]]></text>
+		</element>
+		<element kind="component" uuid="f8e7d6c5-b4a3-2190-8765-432109876543" x="0" y="110" width="250" height="50">
+			<component kind="barcode4j:Code128">
+				<codeExpression><![CDATA[$P{Code128}]]></codeExpression>
+			</component>
+		</element>
+		
+		<!-- EAN-13 Barcode -->
+		<element kind="staticText" uuid="b2c3d4e5-f6a7-8901-bcde-f23456789012" x="265" y="90" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[EAN-13:]]></text>
+		</element>
+		<element kind="component" uuid="a9e8d7c6-b5a4-3201-9876-543210987654" x="265" y="110" width="250" height="50">
+			<component kind="barcode4j:EAN13">
+				<codeExpression><![CDATA[$P{EAN13}]]></codeExpression>
+			</component>
+		</element>
+		
+		<!-- EAN-8 Barcode -->
+		<element kind="staticText" uuid="c3d4e5f6-a7b8-9012-cdef-345678901234" x="0" y="170" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[EAN-8:]]></text>
+		</element>
+		<element kind="component" uuid="b0f9e8d7-c6b5-4312-0987-654321098765" x="0" y="190" width="250" height="50">
+			<component kind="barcode4j:EAN8">
+				<codeExpression><![CDATA[$P{EAN8}]]></codeExpression>
+			</component>
+		</element>
+		
+		<!-- UPC-A Barcode -->
+		<element kind="staticText" uuid="d4e5f6a7-b8c9-0123-defa-456789012345" x="265" y="170" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[UPC-A:]]></text>
+		</element>
+		<element kind="component" uuid="c1a0f9e8-d7c6-5423-1098-765432109876" x="265" y="190" width="250" height="50">
+			<component kind="barcode4j:UPCA">
+				<codeExpression><![CDATA[$P{UPCA}]]></codeExpression>
+			</component>
+		</element>
+		
+		<!-- UPC-E Barcode -->
+		<element kind="staticText" uuid="e5f6a7b8-c9d0-1234-efab-567890123456" x="0" y="250" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[UPC-E:]]></text>
+		</element>
+		<element kind="component" uuid="d2b1a0f9-e8d7-6534-2109-876543210987" x="0" y="270" width="250" height="50">
+			<component kind="barcode4j:UPCE">
+				<codeExpression><![CDATA[$P{UPCE}]]></codeExpression>
+			</component>
+		</element>
+		
+		<!-- Interleaved 2 of 5 Barcode -->
+		<element kind="staticText" uuid="f6a7b8c9-d0e1-2345-fabc-678901234567" x="265" y="250" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[Interleaved 2 of 5:]]></text>
+		</element>
+		<element kind="component" uuid="e3c2b1a0-f9e8-7645-3210-987654321098" x="265" y="270" width="250" height="50">
+			<component kind="barcode4j:Interleaved2Of5">
+				<codeExpression><![CDATA["0123456789"]]></codeExpression>
+			</component>
+		</element>
+		
+		<!-- QR Code -->
+		<element kind="staticText" uuid="a7b8c9d0-e1f2-3456-abcd-789012345678" x="0" y="330" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[QR Code:]]></text>
+		</element>
+		<element kind="component" uuid="f4d3c2b1-a0f9-8756-4321-098765432109" x="0" y="350" width="100" height="100">
+			<component kind="barcode4j:QRCode">
+				<codeExpression><![CDATA[$P{QRCode}]]></codeExpression>
+			</component>
+		</element>
+		
+		<!-- DataMatrix -->
+		<element kind="staticText" uuid="b8c9d0e1-f2a3-4567-bcde-890123456789" x="120" y="330" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[DataMatrix:]]></text>
+		</element>
+		<element kind="component" uuid="a5e4d3c2-b1a0-9867-5432-109876543210" x="120" y="350" width="100" height="100">
+			<component kind="barcode4j:DataMatrix">
+				<codeExpression><![CDATA[$P{DataMatrix}]]></codeExpression>
+			</component>
+		</element>
+		
+		<!-- PDF417 -->
+		<element kind="staticText" uuid="c9d0e1f2-a3b4-5678-cdef-901234567890" x="0" y="460" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[PDF417:]]></text>
+		</element>
+		<element kind="component" uuid="b6f5e4d3-c2b1-0987-6543-210987654321" x="0" y="480" width="400" height="80">
+			<component kind="barcode4j:PDF417">
+				<codeExpression><![CDATA[$P{PDF417}]]></codeExpression>
+			</component>
+		</element>
+		
+		<!-- Codabar -->
+		<element kind="staticText" uuid="d0e1f2a3-b4c5-6789-defa-012345678901" x="0" y="570" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[Codabar:]]></text>
+		</element>
+		<element kind="component" uuid="c7a6f5e4-d3c2-1098-7654-321098765432" x="0" y="590" width="250" height="50">
+			<component kind="barcode4j:Codabar">
+				<codeExpression><![CDATA["A123456789B"]]></codeExpression>
+			</component>
+		</element>
+		
+		<!-- Code39 -->
+		<element kind="staticText" uuid="e1f2a3b4-c5d6-7890-efab-123456789012" x="265" y="570" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[Code39:]]></text>
+		</element>
+		<element kind="component" uuid="d8b7a6f5-e4d3-2109-8765-432109876543" x="265" y="590" width="250" height="50">
+			<component kind="barcode4j:Code39">
+				<codeExpression><![CDATA["CODE39-TEST"]]></codeExpression>
+			</component>
+		</element>
+		
+		<!-- POSTNET -->
+		<element kind="staticText" uuid="f2a3b4c5-d6e7-8901-fabc-234567890123" x="0" y="650" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[POSTNET:]]></text>
+		</element>
+		<element kind="component" uuid="e9c8b7a6-f5e4-3210-9876-543210987654" x="0" y="670" width="250" height="50">
+			<component kind="barcode4j:POSTNET">
+				<codeExpression><![CDATA["95014"]]></codeExpression>
+			</component>
+		</element>
+		
+		<!-- Royal Mail Customer Barcode -->
+		<element kind="staticText" uuid="a3b4c5d6-e7f8-9012-abcd-345678901234" x="265" y="650" width="200" height="20" fontSize="12.0">
+			<text><![CDATA[Royal Mail CBC:]]></text>
+		</element>
+		<element kind="component" uuid="f0a9c8b7-a6f5-4321-0987-654321098765" x="265" y="670" width="250" height="50">
+			<component kind="barcode4j:RoyalMailCustomer">
+				<codeExpression><![CDATA["LE28HS9Z"]]></codeExpression>
+			</component>
+		</element>
+	</title>
+</jasperReport>
