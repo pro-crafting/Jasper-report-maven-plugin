@@ -58,6 +58,11 @@
         </dependency>
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports-barcode4j</artifactId>
+            <version>${version.jasperreports}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
             <artifactId>jasperreports-javascript</artifactId>
             <version>${version.jasperreports}</version>
         </dependency>
